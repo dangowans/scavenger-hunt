@@ -1,0 +1,58 @@
+{
+  "scavengerHuntTitle": "Sault Ste. Marie P-Patch Parks",
+  "scavengerHuntDescription": "Can you find all of the parks in Sault Ste. Marie's P-Patch neighbourhood?",
+  "scavengerHuntImage": "",
+  "scavengerHuntMinimumAccuracy": 15,
+  "clues": [
+    {
+      "clueTitle": "School",
+      "clueDescription": "This park is located behind an elementary school.",
+      "cluePicture": "",
+      "answerLatitude": 46.5243427,
+      "answerLongitude": -84.2976613,
+      "answerTitle": "Park behind Ben R. McMullin School",
+      "answerDescription": "This park includes swings, slides, and a jungle gym.",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Toys",
+      "clueDescription": "This park is stocked with toys, generously shared by a neighbour.",
+      "cluePicture": "",
+      "answerLatitude": 46.5243371,
+      "answerLongitude": -84.2925023,
+      "answerTitle": "Park Place Playground",
+      "answerDescription": "This park includes a slide, swings, and a small climbing structure.",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Big Chair",
+      "clueDescription": "Mostly used in the winter time, this park is set up for 'relaxing large'!",
+      "cluePicture": "",
+      "answerLatitude": 46.5234475,
+      "answerLongitude": -84.2897098,
+      "answerTitle": "Big Blue Chair on Finn Hill",
+      "answerDescription": "Take in the view from a huge Muskoka chair!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Lake and Princeton",
+      "clueDescription": "Only accessible by footpaths.",
+      "cluePicture": "",
+      "answerLatitude": 46.5309598,
+      "answerLongitude": -84.2993544,
+      "answerTitle": "Cambrian Heights Park",
+      "answerDescription": "A small park, with two swings and a small climber.",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Blast off!",
+      "clueDescription": "Climb aboard the rocket!",
+      "cluePicture": "",
+      "answerLatitude": 46.5230228,
+      "answerLongitude": -84.3040728,
+      "answerTitle": "Forest Glen Park",
+      "answerDescription": "Behind the old St. Bernadette School, equipped with lots of swings, multiple slides, and a rocket ship climber.",
+      "answerPicture": ""
+    }
+  ]
+}
