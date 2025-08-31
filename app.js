@@ -35,73 +35,10 @@ class ScavengerHuntApp {
         }
       }
 
-      // If no hunts loaded, create a sample hunt for testing
-      if (this.hunts.length === 0) {
-        this.hunts = this.createSampleHunts();
-      }
     } catch (error) {
       console.error("Error loading hunts:", error);
-      this.hunts = this.createSampleHunts();
+      this.hunts = [];
     }
-  }
-
-  createSampleHunts() {
-    return [
-      {
-        id: "sample1",
-        scavengerHuntTitle: "Bellevue Park Hunt",
-        scavengerHuntDescription:
-          "Explore landmarks in the city's biggest park.",
-        scavengerHuntImage: "images/hunt1.jpg",
-        scavengerHuntMinimumAccuracy: 15,
-        clues: [
-          {
-            clueTitle: "By the River",
-            clueDescription: "A land bridge enjoyed by dog walkers.",
-            cluePicture: "images/clue1.jpg",
-            answerLatitude: 46.0123456,
-            answerLongitude: -84.7894324,
-            answerTitle: "Bridge to Topsail Island",
-            answerDescription:
-              "Enjoy a loop around Topsail Island, accessible from this land bridge that runs next to a small marina.",
-            answerPicture: "images/answer1.jpg",
-          },
-          {
-            clueTitle: "The Old Oak",
-            clueDescription:
-              "A centuries-old tree where lovers carved their initials.",
-            cluePicture: "images/clue2.jpg",
-            answerLatitude: 46.0156789,
-            answerLongitude: -84.7856432,
-            answerTitle: "Heritage Oak Tree",
-            answerDescription:
-              "This magnificent oak has stood here for over 200 years and is a beloved landmark.",
-            answerPicture: "images/answer2.jpg",
-          },
-        ],
-      },
-      {
-        id: "sample2",
-        scavengerHuntTitle: "Downtown Discovery",
-        scavengerHuntDescription:
-          "Discover hidden gems in the heart of the city.",
-        scavengerHuntImage: "images/hunt2.jpg",
-        scavengerHuntMinimumAccuracy: 20,
-        clues: [
-          {
-            clueTitle: "Historic Clock",
-            clueDescription: "Time has been ticking here for over a century.",
-            cluePicture: "images/clue3.jpg",
-            answerLatitude: 46.0234567,
-            answerLongitude: -84.7765432,
-            answerTitle: "City Hall Clock Tower",
-            answerDescription:
-              "Built in 1895, this clock tower has been keeping perfect time for the citizens.",
-            answerPicture: "images/answer3.jpg",
-          },
-        ],
-      },
-    ];
   }
 
   renderHuntList() {
