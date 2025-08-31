@@ -2,7 +2,7 @@
   "scavengerHuntTitle": "Sault Ste. Marie P-Patch Parks",
   "scavengerHuntDescription": "Can you find all of the parks in Sault Ste. Marie's P-Patch neighbourhood?",
   "scavengerHuntImage": "",
-  "scavengerHuntMinimumAccuracy": 30,
+  "scavengerHuntMinimumAccuracy": 50,
   "clues": [
     {
       "clueTitle": "School",
