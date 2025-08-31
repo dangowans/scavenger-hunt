@@ -245,7 +245,7 @@ class HuntDetailsApp {
                 {
                     enableHighAccuracy: true,
                     timeout: 10000,
-                    maximumAge: 60000
+                    maximumAge: 0
                 }
             );
         });

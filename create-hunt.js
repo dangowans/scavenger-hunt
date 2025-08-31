@@ -226,7 +226,7 @@ class HuntCreatorApp {
             navigator.geolocation.getCurrentPosition(resolve, reject, {
                 enableHighAccuracy: true,
                 timeout: 10000,
-                maximumAge: 60000
+                maximumAge: 0
             });
         });
     }
