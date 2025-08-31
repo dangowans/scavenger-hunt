@@ -167,6 +167,31 @@ class ScavengerHuntApp {
                 window.location.href = 'create-hunt.html';
             });
         }
+        
+        // Setup clear all progress button
+        const clearAllBtn = document.getElementById('clear-all-progress-btn');
+        if (clearAllBtn) {
+            clearAllBtn.addEventListener('click', () => {
+                this.clearAllProgress();
+            });
+        }
+    }
+    
+    clearAllProgress() {
+        if (confirm('Are you sure you want to clear all progress for all hunts? This action cannot be undone.')) {
+            // Get all localStorage keys that start with 'hunt_progress_'
+            const keys = Object.keys(localStorage);
+            const progressKeys = keys.filter(key => key.startsWith('hunt_progress_'));
+            
+            // Remove all progress keys
+            progressKeys.forEach(key => localStorage.removeItem(key));
+            
+            // Re-render the hunt list to update progress displays
+            this.renderHuntList();
+            
+            // Show confirmation
+            alert('All progress has been cleared!');
+        }
     }
 }
 
