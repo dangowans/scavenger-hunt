@@ -175,6 +175,15 @@ class ScavengerHuntApp {
                 this.clearAllProgress();
             });
         }
+        
+        // Setup refresh hunts button
+        const refreshBtn = document.getElementById('refresh-hunts-btn');
+        if (refreshBtn) {
+            refreshBtn.addEventListener('click', () => {
+                console.log('Event listener triggered, calling refreshHunts...');
+                this.refreshHunts();
+            });
+        }
     }
     
     clearAllProgress() {
@@ -191,6 +200,30 @@ class ScavengerHuntApp {
             
             // Show confirmation
             alert('All progress has been cleared!');
+        }
+    }
+    
+    async refreshHunts() {
+        console.log('refreshHunts method called!');
+        const huntListElement = document.getElementById('hunt-list');
+        
+        // Show loading state
+        huntListElement.innerHTML = '<div class="loading">Refreshing hunts...</div>';
+        
+        try {
+            // Clear existing hunts
+            this.hunts = [];
+            
+            // Reload hunts
+            await this.loadHunts();
+            
+            // Re-render the hunt list
+            this.renderHuntList();
+            
+            console.log('Hunts refreshed successfully');
+        } catch (error) {
+            console.error('Error refreshing hunts:', error);
+            huntListElement.innerHTML = '<div class="loading">Error refreshing hunts. Please try again.</div>';
         }
     }
 }

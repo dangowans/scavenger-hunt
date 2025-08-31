@@ -384,6 +384,25 @@ footer {
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Refresh Button */
+.refresh-btn {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
 /* Hunt Creation Form Styles */
 .hunt-form {
     max-width: 800px;
