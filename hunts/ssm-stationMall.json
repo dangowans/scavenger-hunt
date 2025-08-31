@@ -1,0 +1,88 @@
+{
+  "scavengerHuntTitle": "Station Mall",
+  "scavengerHuntDescription": "A tour of the \"Centre of it all\"",
+  "scavengerHuntImage": "",
+  "scavengerHuntMinimumAccuracy": 15,
+  "clues": [
+    {
+      "clueTitle": "Music",
+      "clueDescription": "A store with CDs, records, and more.",
+      "cluePicture": "",
+      "answerLatitude": 46.5116415,
+      "answerLongitude": -84.3378159,
+      "answerTitle": "Sunrise Records",
+      "answerDescription": "Rock on!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Not \"Hard\" Footwear ",
+      "clueDescription": "A shoe store.",
+      "cluePicture": "",
+      "answerLatitude": 46.5118889,
+      "answerLongitude": -84.3381026,
+      "answerTitle": "SoftMoc",
+      "answerDescription": "Your new shoes await.",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Mario",
+      "clueDescription": "A video game store.",
+      "cluePicture": "",
+      "answerLatitude": 46.5121232,
+      "answerLongitude": -84.3387892,
+      "answerTitle": "GameStop",
+      "answerDescription": "Game on!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Popcorn",
+      "clueDescription": "And maybe catch a movie.",
+      "cluePicture": "",
+      "answerLatitude": 46.5121003,
+      "answerLongitude": -84.3390674,
+      "answerTitle": "Galaxy Cinemas",
+      "answerDescription": "See what's playing!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Donuts",
+      "clueDescription": "And coffee too.",
+      "cluePicture": "",
+      "answerLatitude": 46.5125921,
+      "answerLongitude": -84.3390208,
+      "answerTitle": "Tim Hortons",
+      "answerDescription": "What colour are the sprinkles today?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Books",
+      "clueDescription": "A store with lots to read.",
+      "cluePicture": "",
+      "answerLatitude": 46.5126019,
+      "answerLongitude": -84.3387533,
+      "answerTitle": "Coles",
+      "answerDescription": "Whatcha reading?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Happy Birthday!",
+      "clueDescription": "A store that sells cards for all occasions.",
+      "cluePicture": "",
+      "answerLatitude": 46.5130604,
+      "answerLongitude": -84.339666,
+      "answerTitle": "Hallmark",
+      "answerDescription": "Are the Christmas ornaments out yet?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Weeeeeeee!",
+      "clueDescription": "Go for a ride on a bug!",
+      "cluePicture": "",
+      "answerLatitude": 46.5135763,
+      "answerLongitude": -84.3400818,
+      "answerTitle": "Buggies",
+      "answerDescription": "Rideables for the littles.",
+      "answerPicture": ""
+    }
+  ]
+}
