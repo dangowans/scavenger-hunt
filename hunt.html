@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scavenger Hunt</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#2196F3">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button id="back-btn" class="back-btn">← Back to Hunts</button>
+            <h1 id="hunt-title">Loading...</h1>
+            <p id="hunt-description"></p>
+            <div id="hunt-progress" class="progress-bar">
+                <div class="progress-fill"></div>
+                <span class="progress-text">0/0 completed</span>
+            </div>
+        </header>
+
+        <main id="clue-list">
+            <div class="loading">Loading clues...</div>
+        </main>
+
+        <!-- Clue Detail Modal -->
+        <div id="clue-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-clue-title"></h2>
+                    <button id="close-modal" class="close-btn">×</button>
+                </div>
+                <div class="modal-body">
+                    <div id="clue-content">
+                        <button id="reveal-description" class="reveal-btn">Reveal Description</button>
+                        <div id="clue-description" class="hidden"></div>
+                        <button id="reveal-image" class="reveal-btn hidden">Reveal Image</button>
+                        <div id="clue-image-container" class="hidden"></div>
+                    </div>
+                    <div class="location-section">
+                        <button id="check-location" class="location-btn">📍 Check Location</button>
+                        <div id="location-result" class="location-result"></div>
+                    </div>
+                    <div id="answer-content" class="answer hidden">
+                        <h3>🎉 Congratulations!</h3>
+                        <h4 id="answer-title"></h4>
+                        <p id="answer-description"></p>
+                        <div id="answer-image-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="hunt.js"></script>
+</body>
+</html>
