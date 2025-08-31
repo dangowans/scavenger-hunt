@@ -19,7 +19,8 @@ class ScavengerHuntApp {
         "ssm-pPatchParks.json",
         "ssm-bellevuePark.json",
         "ssm-stationMall.json",
-        "test-benR.json"
+        "test-benR.json",
+        "test-firework.json"
       ]; // Add more hunt files as needed
 
       for (const huntFile of huntFiles) {
