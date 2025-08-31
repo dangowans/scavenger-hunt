@@ -179,9 +179,9 @@ class ScavengerHuntApp {
         // Setup refresh hunts button
         const refreshBtn = document.getElementById('refresh-hunts-btn');
         if (refreshBtn) {
-            refreshBtn.addEventListener('click', () => {
-                console.log('Event listener triggered, calling refreshHunts...');
-                this.refreshHunts();
+            refreshBtn.addEventListener('click', async () => {
+                console.log('Refresh button clicked!');
+                await this.refreshHunts();
             });
         }
     }
@@ -204,7 +204,6 @@ class ScavengerHuntApp {
     }
     
     async refreshHunts() {
-        console.log('refreshHunts method called!');
         const huntListElement = document.getElementById('hunt-list');
         
         // Show loading state
