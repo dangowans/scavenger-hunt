@@ -1,15 +1,18 @@
 // Service Worker for offline functionality
 const CACHE_NAME = 'scavenger-hunt-v1';
+
+const rootUrl = 'https://dangowans.cityssm.io/scavenger-hunt';
+
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/hunt.html',
-    '/create-hunt.html',
-    '/styles.css',
-    '/app.js',
-    '/hunt.js',
-    '/create-hunt.js',
-    '/manifest.json',
+    rootUrl + '/',
+    rootUrl + '/index.html',
+    rootUrl + '/hunt.html',
+    rootUrl + '/create-hunt.html',
+    rootUrl + '/styles.css',
+    rootUrl + '/app.js',
+    rootUrl + '/hunt.js',
+    rootUrl + '/create-hunt.js',
+    rootUrl + '/manifest.json',
     // Add hunt files and images as they're accessed
 ];
 
