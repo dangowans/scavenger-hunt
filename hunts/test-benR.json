@@ -1,0 +1,18 @@
+{
+  "scavengerHuntTitle": "Sault Ste. Marie P-Patch Parks - Ben R Test",
+  "scavengerHuntDescription": "Can you find all of the parks in Sault Ste. Marie's P-Patch neighbourhood?",
+  "scavengerHuntImage": "",
+  "scavengerHuntMinimumAccuracy": 15,
+  "clues": [
+    {
+      "clueTitle": "School",
+      "clueDescription": "This park is located behind an elementary school.",
+      "cluePicture": "",
+      "answerLatitude": 46.5243427,
+      "answerLongitude": -84.2976613,
+      "answerTitle": "Park behind Ben R. McMullin School",
+      "answerDescription": "This park includes swings, slides, and a jungle gym.",
+      "answerPicture": ""
+    }
+  ]
+}
