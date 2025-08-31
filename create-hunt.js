@@ -36,6 +36,11 @@ class HuntCreatorApp {
             this.showPreview();
         });
 
+        // Clear saved data button
+        document.getElementById('clear-saved-btn').addEventListener('click', () => {
+            this.clearSavedDataWithConfirmation();
+        });
+
         // Preview modal controls
         document.getElementById('close-preview').addEventListener('click', () => {
             this.closePreview();
@@ -458,6 +463,26 @@ class HuntCreatorApp {
             }
         } catch (error) {
             console.error('Error restoring form data:', error);
+        }
+    }
+
+    clearSavedDataWithConfirmation() {
+        if (confirm('Are you sure you want to clear all saved progress for this hunt? This action cannot be undone.')) {
+            // Clear saved data
+            this.clearSavedData();
+            
+            // Reset the form to initial state
+            document.getElementById('hunt-form').reset();
+            
+            // Reset clue counter and clear clues container
+            this.clueCounter = 0;
+            document.getElementById('clues-container').innerHTML = '';
+            
+            // Add initial clue
+            this.addInitialClue();
+            
+            // Show confirmation
+            alert('Saved hunt data has been cleared!');
         }
     }
 
