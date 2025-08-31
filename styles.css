@@ -614,4 +614,38 @@ footer {
     line-height: 1.4;
     border: 1px solid #ecf0f1;
 }
+
+/* Clear Progress Button Styles */
+.footer-actions {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.hunt-actions {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.clear-progress-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+.clear-progress-btn:hover {
+    background: #c0392b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+}
+
+.clear-progress-btn:active {
+    transform: translateY(0);
+}
 }

@@ -65,6 +65,14 @@ class HuntDetailsApp {
         document.getElementById('check-location').addEventListener('click', () => {
             this.checkLocation();
         });
+        
+        // Clear hunt progress button
+        const clearHuntBtn = document.getElementById('clear-hunt-progress-btn');
+        if (clearHuntBtn) {
+            clearHuntBtn.addEventListener('click', () => {
+                this.clearHuntProgress();
+            });
+        }
     }
 
     renderHunt() {
@@ -336,6 +344,23 @@ class HuntDetailsApp {
         document.getElementById('clue-modal').style.display = 'none';
         // Show location check button again for next time
         document.getElementById('check-location').style.display = 'block';
+    }
+    
+    clearHuntProgress() {
+        if (confirm(`Are you sure you want to clear all progress for "${this.currentHunt.scavengerHuntTitle}"? This action cannot be undone.`)) {
+            // Clear the progress for this hunt
+            localStorage.removeItem(`hunt_progress_${this.currentHunt.id}`);
+            
+            // Reset the local progress object
+            this.huntProgress = {};
+            
+            // Re-render the hunt to update progress displays
+            this.updateProgress();
+            this.renderClueList();
+            
+            // Show confirmation
+            alert('Hunt progress has been cleared!');
+        }
     }
 }
 
