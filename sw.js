@@ -12,6 +12,7 @@ const urlsToCache = [
     rootUrl + '/app.js',
     rootUrl + '/hunt.js',
     rootUrl + '/create-hunt.js',
+    rootUrl + '/hunts.json',
     rootUrl + '/manifest.json',
     // Add hunt files and images as they're accessed
 ];
