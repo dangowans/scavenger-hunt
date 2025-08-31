@@ -377,6 +377,7 @@ footer {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    margin: 10px;
 }
 
 .create-hunt-btn:hover {
@@ -396,6 +397,7 @@ footer {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
+    margin: 10px;
 }
 
 .refresh-btn:hover {
@@ -656,13 +658,14 @@ footer {
     background: #e74c3c;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: 25px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    margin: 10px;
 }
 
 .clear-progress-btn:hover {
@@ -673,5 +676,4 @@ footer {
 
 .clear-progress-btn:active {
     transform: translateY(0);
-}
 }
