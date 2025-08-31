@@ -14,13 +14,12 @@ class ScavengerHuntApp {
 
   async loadHunts() {
     try {
-      // Load hunt configurations from JSON files
-      const huntFiles = [
-        "ssm-pPatchParks.json",
-        "ssm-bellevuePark.json",
-        "ssm-stationMall.json",
-        "test-benR.json"
-      ]; // Add more hunt files as needed
+      // Load hunt file list from hunts.json
+      const huntListResponse = await fetch('hunts.json');
+      if (!huntListResponse.ok) {
+        throw new Error('Could not load hunt list');
+      }
+      const huntFiles = await huntListResponse.json();
 
       for (const huntFile of huntFiles) {
         try {
