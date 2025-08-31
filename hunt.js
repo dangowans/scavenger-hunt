@@ -171,6 +171,9 @@ class HuntDetailsApp {
         document.getElementById('answer-description').textContent = '';
         document.getElementById('answer-image-container').innerHTML = '';
         
+        // Clear location result styling to hide previous location lookup results
+        document.getElementById('location-result').className = 'location-result';
+        
         // Enable location button
         document.getElementById('check-location').disabled = false;
     }
