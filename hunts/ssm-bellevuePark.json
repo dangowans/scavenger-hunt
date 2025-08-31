@@ -1,0 +1,108 @@
+{
+  "scavengerHuntTitle": "Sault Ste. Marie's Bellevue Park",
+  "scavengerHuntDescription": "A scavenger hunt around Sault Ste. Marie's largest park.",
+  "scavengerHuntImage": "",
+  "scavengerHuntMinimumAccuracy": 15,
+  "clues": [
+    {
+      "clueTitle": "Get wet!",
+      "clueDescription": "A seasonal place to cool down from.the summer heat.",
+      "cluePicture": "",
+      "answerLatitude": 46.5029354,
+      "answerLongitude": -84.2989077,
+      "answerTitle": "Splash Pad",
+      "answerDescription": "Did you bring a towel?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Go for a zip!",
+      "clueDescription": "A playground piece you can ride.",
+      "cluePicture": "",
+      "answerLatitude": 46.5022158,
+      "answerLongitude": -84.2994308,
+      "answerTitle": "Adventure Playground",
+      "answerDescription": "The newest section at Bellevue Park, with equipment for everyone.",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Get lost in the hedges!",
+      "clueDescription": "A little known maze of hedges.",
+      "cluePicture": "",
+      "answerLatitude": 46.502207,
+      "answerLongitude": -84.3010258,
+      "answerTitle": "The Hedge Maze",
+      "answerDescription": "Don't get lost!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "To play or to \"duck\"?",
+      "clueDescription": "A fork in the path, leading to the playground or to the duck pond.",
+      "cluePicture": "",
+      "answerLatitude": 46.5008682,
+      "answerLongitude": -84.2993939,
+      "answerTitle": "Path near the duck pond",
+      "answerDescription": "Did you bring your bird seed?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Rest in Peace",
+      "clueDescription": "A gravestone near the duck pond.",
+      "cluePicture": "",
+      "answerLatitude": 46.5003618,
+      "answerLongitude": -84.2999008,
+      "answerTitle": "Col. John Prince Gravestone",
+      "answerDescription": "The first judge of the District of Algoma.",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Left or right around the \"island\"",
+      "clueDescription": "A fork in the road. Which way will you take around Topsail?",
+      "cluePicture": "",
+      "answerLatitude": 46.4979383,
+      "answerLongitude": -84.2986765,
+      "answerTitle": "Topsail Island fork in the road",
+      "answerDescription": "The start (and end) of a beautiful walk around Topsail Island.",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Packed a lunch",
+      "clueDescription": "A covered place to eat lunch near the river.",
+      "cluePicture": "",
+      "answerLatitude": 46.4991507,
+      "answerLongitude": -84.296727,
+      "answerTitle": "Picnic Shelter",
+      "answerDescription": "Make sure to clean up when you're done!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Not a purple house...",
+      "clueDescription": "Not red either. Or orange. Or yellow.",
+      "cluePicture": "",
+      "answerLatitude": 46.500114,
+      "answerLongitude": -84.2957074,
+      "answerTitle": "Bellevue Park Greenhouse",
+      "answerDescription": "So many varieties of plants, growing year round.",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "I'm hungry!",
+      "clueDescription": "Let's get some ice cream!",
+      "cluePicture": "",
+      "answerLatitude": 46.5005486,
+      "answerLongitude": -84.2973152,
+      "answerTitle": "Canteen",
+      "answerDescription": "Seasonal sales of all sorts of treats.",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Let's perform!",
+      "clueDescription": "A place to put on a show!",
+      "cluePicture": "",
+      "answerLatitude": 46.5007534,
+      "answerLongitude": -84.2970082,
+      "answerTitle": "Bellevue Park Bandshell",
+      "answerDescription": "Bravo!",
+      "answerPicture": ""
+    }
+  ]
+}
