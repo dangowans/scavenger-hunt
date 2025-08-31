@@ -4,9 +4,11 @@ const urlsToCache = [
     '/',
     '/index.html',
     '/hunt.html',
+    '/create-hunt.html',
     '/styles.css',
     '/app.js',
     '/hunt.js',
+    '/create-hunt.js',
     '/manifest.json',
     // Add hunt files and images as they're accessed
 ];
