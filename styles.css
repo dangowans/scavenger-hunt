@@ -677,3 +677,174 @@ footer {
 .clear-progress-btn:active {
     transform: translateY(0);
 }
+
+/* Celebration Overlay Styles */
+.celebration-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.celebration-overlay.hidden {
+    display: none;
+    opacity: 0;
+}
+
+.celebration-message {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1001;
+    max-width: 400px;
+    margin: 20px;
+}
+
+.celebration-message h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    animation: celebrate-bounce 1s ease-in-out;
+}
+
+.celebration-message p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+.celebration-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.celebration-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Firework Animations */
+.fireworks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ff6b6b;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 20px #ff6b6b,
+        0 0 40px #ff6b6b,
+        0 0 60px #ff6b6b;
+}
+
+.firework-1 {
+    left: 20%;
+    top: 30%;
+    animation: firework-explosion-1 2s ease-out infinite;
+}
+
+.firework-2 {
+    right: 20%;
+    top: 20%;
+    background: #4ecdc4;
+    box-shadow: 
+        0 0 20px #4ecdc4,
+        0 0 40px #4ecdc4,
+        0 0 60px #4ecdc4;
+    animation: firework-explosion-2 2s ease-out infinite 0.5s;
+}
+
+.firework-3 {
+    left: 50%;
+    top: 40%;
+    background: #45b7d1;
+    box-shadow: 
+        0 0 20px #45b7d1,
+        0 0 40px #45b7d1,
+        0 0 60px #45b7d1;
+    animation: firework-explosion-3 2s ease-out infinite 1s;
+}
+
+@keyframes celebrate-bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes firework-explosion-1 {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    15% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(15);
+        opacity: 0;
+    }
+}
+
+@keyframes firework-explosion-2 {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    15% {
+        transform: scale(1) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(20) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes firework-explosion-3 {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    15% {
+        transform: scale(1) rotate(-180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(18) rotate(-360deg);
+        opacity: 0;
+    }
+}

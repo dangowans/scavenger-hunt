@@ -96,6 +96,14 @@ class HuntDetailsApp {
 
         document.querySelector('.progress-fill').style.width = `${percentage}%`;
         document.querySelector('.progress-text').textContent = `${completedCount}/${totalCount} completed`;
+        
+        // Check if hunt is completed (100%)
+        if (percentage === 100 && completedCount > 0) {
+            // Add a small delay to let the progress bar animation complete
+            setTimeout(() => {
+                this.showCelebration();
+            }, 500);
+        }
     }
 
     renderClueList() {
@@ -344,6 +352,26 @@ class HuntDetailsApp {
         document.getElementById('clue-modal').style.display = 'none';
         // Show location check button again for next time
         document.getElementById('check-location').style.display = 'block';
+    }
+
+    showCelebration() {
+        const celebrationOverlay = document.getElementById('celebration-overlay');
+        celebrationOverlay.classList.remove('hidden');
+        
+        // Setup close button listener
+        const closeCelebrationBtn = document.getElementById('close-celebration');
+        if (closeCelebrationBtn) {
+            closeCelebrationBtn.addEventListener('click', () => {
+                celebrationOverlay.classList.add('hidden');
+            });
+        }
+        
+        // Close celebration when clicking outside the message
+        celebrationOverlay.addEventListener('click', (e) => {
+            if (e.target === celebrationOverlay) {
+                celebrationOverlay.classList.add('hidden');
+            }
+        });
     }
     
     clearHuntProgress() {
