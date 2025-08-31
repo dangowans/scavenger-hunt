@@ -1,4 +1,50 @@
-<svg width='128' height='128' xmlns='http://www.w3.org/2000/svg'>
-    <rect width='100%' height='100%' fill='#2196F3' rx='20'/>
-    <text x='50%' y='50%' font-family='Arial, sans-serif' font-size='32' fill='white' text-anchor='middle' dy='.3em'>🔍</text>
+<svg width='128' height='128' xmlns='http://www.w3.org/2000/svg' style='image-rendering: pixelated;'>
+    <!-- Background -->
+    <rect width='100%' height='100%' fill='#1e3a8a' rx='12'/>
+    
+    <!-- Character face (blonde boy) -->
+    <!-- Face outline -->
+    <rect x='34' y='36' width='60' height='56' fill='#fdbcb4' stroke='#8b5a2b' stroke-width='2'/>
+    
+    <!-- Hair (blonde) -->
+    <rect x='30' y='28' width='68' height='20' fill='#fbbf24'/>
+    <rect x='26' y='34' width='76' height='16' fill='#f59e0b'/>
+    <rect x='34' y='22' width='60' height='8' fill='#fbbf24'/>
+    
+    <!-- Hair highlights -->
+    <rect x='40' y='28' width='8' height='4' fill='#fef3c7'/>
+    <rect x='80' y='28' width='8' height='4' fill='#fef3c7'/>
+    
+    <!-- Eyes -->
+    <rect x='42' y='50' width='8' height='8' fill='#1f2937'/>
+    <rect x='78' y='50' width='8' height='8' fill='#1f2937'/>
+    
+    <!-- Eye highlights -->
+    <rect x='44' y='52' width='4' height='4' fill='#ffffff'/>
+    <rect x='80' y='52' width='4' height='4' fill='#ffffff'/>
+    
+    <!-- Nose -->
+    <rect x='62' y='62' width='4' height='4' fill='#f87171'/>
+    
+    <!-- Mouth -->
+    <rect x='56' y='72' width='16' height='4' fill='#dc2626'/>
+    <rect x='60' y='76' width='8' height='3' fill='#dc2626'/>
+    
+    <!-- Magnifying glass over right eye -->
+    <!-- Handle -->
+    <rect x='94' y='42' width='22' height='4' fill='#8b5a2b'/>
+    <rect x='114' y='48' width='4' height='16' fill='#8b5a2b'/>
+    
+    <!-- Glass rim -->
+    <circle cx='82' cy='50' r='16' fill='none' stroke='#6b7280' stroke-width='4'/>
+    
+    <!-- Glass lens -->
+    <circle cx='82' cy='50' r='12' fill='#e0f2fe' opacity='0.7'/>
+    
+    <!-- Lens highlight -->
+    <circle cx='86' cy='46' r='4' fill='#ffffff' opacity='0.8'/>
+    
+    <!-- Magnified eye effect -->
+    <circle cx='82' cy='50' r='8' fill='#1f2937'/>
+    <circle cx='85' cy='47' r='4' fill='#ffffff'/>
 </svg>
