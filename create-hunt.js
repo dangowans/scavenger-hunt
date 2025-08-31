@@ -2,12 +2,16 @@
 class HuntCreatorApp {
     constructor() {
         this.clueCounter = 0;
+        this.storageKey = 'hunt_creation_progress';
         this.init();
     }
 
     init() {
         this.setupEventListeners();
-        this.addInitialClue();
+        this.restoreFormData();
+        if (this.clueCounter === 0) {
+            this.addInitialClue();
+        }
     }
 
     setupEventListeners() {
@@ -42,6 +46,9 @@ class HuntCreatorApp {
                 this.closePreview();
             }
         });
+
+        // Set up auto-save listeners for form inputs
+        this.setupAutoSave();
     }
 
     addInitialClue() {
@@ -70,6 +77,17 @@ class HuntCreatorApp {
         if (getLocationBtn) {
             getLocationBtn.addEventListener('click', () => {
                 this.getCurrentLocation(clueId);
+            });
+        }
+
+        // Add auto-save listeners for the new clue inputs
+        const clueElement = document.getElementById(`clue-${clueId}`);
+        if (clueElement) {
+            const inputs = clueElement.querySelectorAll('input, textarea, select');
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    this.saveFormData();
+                });
             });
         }
     }
@@ -159,6 +177,9 @@ class HuntCreatorApp {
         if (remainingClues.length === 0) {
             this.addClue();
         }
+
+        // Save updated form data
+        this.saveFormData();
     }
 
     async getCurrentLocation(clueId) {
@@ -327,9 +348,121 @@ class HuntCreatorApp {
 
             // Show success message
             alert(`Hunt "${hunt.scavengerHuntTitle}" has been downloaded as ${filename}!\n\nTo use this hunt, place the file in the "hunts/" folder and update the hunt file list in app.js.`);
+            
+            // Clear saved progress after successful download
+            this.clearSavedData();
         } catch (error) {
             alert('Error creating hunt: ' + error.message);
         }
+    }
+
+    setupAutoSave() {
+        // Set up listeners for hunt details inputs
+        const huntForm = document.getElementById('hunt-form');
+        const huntInputs = huntForm.querySelectorAll('input, textarea, select');
+        
+        huntInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                this.saveFormData();
+            });
+        });
+    }
+
+    saveFormData() {
+        try {
+            const formData = {
+                huntDetails: {},
+                clues: [],
+                clueCounter: this.clueCounter
+            };
+
+            // Save hunt details
+            const huntForm = document.getElementById('hunt-form');
+            formData.huntDetails.title = huntForm.querySelector('#hunt-title')?.value || '';
+            formData.huntDetails.description = huntForm.querySelector('#hunt-description')?.value || '';
+            formData.huntDetails.image = huntForm.querySelector('#hunt-image')?.value || '';
+            formData.huntDetails.accuracy = huntForm.querySelector('#hunt-accuracy')?.value || '15';
+
+            // Save clues data
+            const clueElements = document.querySelectorAll('.clue-form');
+            clueElements.forEach(clueElement => {
+                const clueData = {
+                    clueTitle: clueElement.querySelector('[name="clueTitle"]')?.value || '',
+                    clueDescription: clueElement.querySelector('[name="clueDescription"]')?.value || '',
+                    cluePicture: clueElement.querySelector('[name="cluePicture"]')?.value || '',
+                    answerLatitude: clueElement.querySelector('[name="answerLatitude"]')?.value || '',
+                    answerLongitude: clueElement.querySelector('[name="answerLongitude"]')?.value || '',
+                    answerTitle: clueElement.querySelector('[name="answerTitle"]')?.value || '',
+                    answerDescription: clueElement.querySelector('[name="answerDescription"]')?.value || '',
+                    answerPicture: clueElement.querySelector('[name="answerPicture"]')?.value || ''
+                };
+                formData.clues.push(clueData);
+            });
+
+            localStorage.setItem(this.storageKey, JSON.stringify(formData));
+        } catch (error) {
+            console.error('Error saving form data:', error);
+        }
+    }
+
+    restoreFormData() {
+        try {
+            const savedData = localStorage.getItem(this.storageKey);
+            if (!savedData) return;
+
+            const formData = JSON.parse(savedData);
+            
+            // Restore hunt details
+            if (formData.huntDetails) {
+                const huntTitle = document.getElementById('hunt-title');
+                const huntDescription = document.getElementById('hunt-description');
+                const huntImage = document.getElementById('hunt-image');
+                const huntAccuracy = document.getElementById('hunt-accuracy');
+
+                if (huntTitle) huntTitle.value = formData.huntDetails.title || '';
+                if (huntDescription) huntDescription.value = formData.huntDetails.description || '';
+                if (huntImage) huntImage.value = formData.huntDetails.image || '';
+                if (huntAccuracy) huntAccuracy.value = formData.huntDetails.accuracy || '15';
+            }
+
+            // Restore clue counter
+            this.clueCounter = formData.clueCounter || 0;
+
+            // Restore clues
+            if (formData.clues && formData.clues.length > 0) {
+                // Clear the container first
+                const cluesContainer = document.getElementById('clues-container');
+                cluesContainer.innerHTML = '';
+
+                formData.clues.forEach((clueData, index) => {
+                    this.addClue();
+                    
+                    // Populate the clue data immediately after adding
+                    const clueElement = document.getElementById(`clue-${this.clueCounter}`);
+                    if (clueElement) {
+                        const setIfExists = (selector, value) => {
+                            const element = clueElement.querySelector(selector);
+                            if (element) element.value = value || '';
+                        };
+
+                        setIfExists('[name="clueTitle"]', clueData.clueTitle);
+                        setIfExists('[name="clueDescription"]', clueData.clueDescription);
+                        setIfExists('[name="cluePicture"]', clueData.cluePicture);
+                        setIfExists('[name="answerLatitude"]', clueData.answerLatitude);
+                        setIfExists('[name="answerLongitude"]', clueData.answerLongitude);
+                        setIfExists('[name="answerTitle"]', clueData.answerTitle);
+                        setIfExists('[name="answerDescription"]', clueData.answerDescription);
+                        setIfExists('[name="answerPicture"]', clueData.answerPicture);
+                    }
+                });
+            }
+        } catch (error) {
+            console.error('Error restoring form data:', error);
+        }
+    }
+
+    clearSavedData() {
+        localStorage.removeItem(this.storageKey);
     }
 }
 
