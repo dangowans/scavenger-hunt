@@ -12,10 +12,25 @@ class ScavengerHuntApp {
     this.setupCreateHuntButton();
   }
 
-  async loadHunts() {
+  async loadHunts(bypassCache = false) {
     try {
       // Load hunt file list from hunts.json
-      const huntListResponse = await fetch('hunts.json');
+      let huntListResponse;
+      if (bypassCache) {
+        // Add timestamp to bypass all caching including service worker
+        const timestamp = Date.now();
+        huntListResponse = await fetch(`hunts.json?t=${timestamp}`, { 
+          cache: 'reload',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            'Pragma': 'no-cache',
+            'Expires': '0'
+          }
+        });
+      } else {
+        huntListResponse = await fetch('hunts.json');
+      }
+      
       if (!huntListResponse.ok) {
         throw new Error('Could not load hunt list');
       }
@@ -181,8 +196,8 @@ class ScavengerHuntApp {
       // Clear existing hunts
       this.hunts = [];
 
-      // Reload hunts
-      await this.loadHunts();
+      // Reload hunts (bypass cache to ensure fresh data)
+      await this.loadHunts(true);
 
       // Re-render the hunt list
       this.renderHuntList();
