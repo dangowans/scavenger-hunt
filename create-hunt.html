@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Hunt - Scavenger Hunt</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="theme-color" content="#2196F3">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button id="back-btn" class="back-btn">← Back to Hunts</button>
+            <h1>🔧 Create New Hunt</h1>
+            <p>Design your own scavenger hunt adventure!</p>
+        </header>
+
+        <main id="create-hunt-form">
+            <form id="hunt-form" class="hunt-form">
+                <!-- Hunt Details Section -->
+                <div class="form-section">
+                    <h3>Hunt Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="hunt-title">Hunt Title *</label>
+                        <input type="text" id="hunt-title" name="scavengerHuntTitle" required 
+                               placeholder="e.g., Downtown Discovery">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hunt-description">Hunt Description *</label>
+                        <textarea id="hunt-description" name="scavengerHuntDescription" required 
+                                  placeholder="Describe what players will explore..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hunt-image">Hunt Image URL</label>
+                        <input type="url" id="hunt-image" name="scavengerHuntImage" 
+                               placeholder="https://example.com/hunt-image.jpg">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="hunt-accuracy">Minimum Accuracy (meters) *</label>
+                        <input type="number" id="hunt-accuracy" name="scavengerHuntMinimumAccuracy" 
+                               min="5" max="100" value="15" required>
+                        <small>How close players need to get to each location (5-100 meters)</small>
+                    </div>
+                </div>
+
+                <!-- Clues Section -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <h3>Clues</h3>
+                        <button type="button" id="add-clue-btn" class="add-btn">+ Add Clue</button>
+                    </div>
+                    
+                    <div id="clues-container">
+                        <!-- Clues will be added dynamically here -->
+                    </div>
+                </div>
+
+                <!-- Actions -->
+                <div class="form-actions">
+                    <button type="button" id="preview-btn" class="secondary-btn">👁️ Preview JSON</button>
+                    <button type="submit" id="download-btn" class="primary-btn">💾 Download Hunt</button>
+                </div>
+            </form>
+        </main>
+
+        <!-- Preview Modal -->
+        <div id="preview-modal" class="modal">
+            <div class="modal-content large">
+                <div class="modal-header">
+                    <h2>Hunt Preview</h2>
+                    <button id="close-preview" class="close-btn">×</button>
+                </div>
+                <div class="modal-body">
+                    <pre id="preview-json"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="create-hunt.js"></script>
+</body>
+</html>

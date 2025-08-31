@@ -9,6 +9,7 @@ class ScavengerHuntApp {
         await this.loadHunts();
         this.renderHuntList();
         this.setupServiceWorker();
+        this.setupCreateHuntButton();
     }
 
     async loadHunts() {
@@ -156,6 +157,15 @@ class ScavengerHuntApp {
             } catch (error) {
                 console.error('Service Worker registration failed:', error);
             }
+        }
+    }
+
+    setupCreateHuntButton() {
+        const createHuntBtn = document.getElementById('create-hunt-btn');
+        if (createHuntBtn) {
+            createHuntBtn.addEventListener('click', () => {
+                window.location.href = 'create-hunt.html';
+            });
         }
     }
 }
