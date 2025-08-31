@@ -15,7 +15,7 @@ class ScavengerHuntApp {
     async loadHunts() {
         try {
             // Load hunt configurations from JSON files
-            const huntFiles = ['hunt1.json', 'hunt2.json']; // Add more hunt files as needed
+            const huntFiles = ['ssm-pPatchParks.json']; // Add more hunt files as needed
             
             for (const huntFile of huntFiles) {
                 try {
