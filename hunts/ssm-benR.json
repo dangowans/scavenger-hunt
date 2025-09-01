@@ -2,7 +2,7 @@
   "scavengerHuntTitle": "Ben R. McMullin Public School",
   "scavengerHuntDescription": "Explore the school yard",
   "scavengerHuntImage": "",
-  "scavengerHuntMinimumAccuracy": 25,
+  "scavengerHuntMinimumAccuracy": 20,
   "clues": [
     {
       "clueTitle": "The \"only\" way in...",
@@ -38,8 +38,8 @@
       "clueTitle": "A place in the shade",
       "clueDescription": "A quiet place with trees.",
       "cluePicture": "",
-      "answerLatitude": 46.5253891,
-      "answerLongitude": -84.2982132,
+      "answerLatitude": 46.5253044,
+      "answerLongitude": -84.2983785,
       "answerTitle": "Lloyd's Grove",
       "answerDescription": "A nice break from the sun.",
       "answerPicture": ""
@@ -58,8 +58,8 @@
       "clueTitle": "More than three squares..",
       "clueDescription": "Between the two game boards.",
       "cluePicture": "",
-      "answerLatitude": 46.524904,
-      "answerLongitude": -84.2984922,
+      "answerLatitude": 46.5247392,
+      "answerLongitude": -84.2984485,
       "answerTitle": "Four Square Boards",
       "answerDescription": "Do you know how to play?",
       "answerPicture": ""
