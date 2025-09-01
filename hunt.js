@@ -217,6 +217,7 @@ class HuntDetailsApp {
             const position = await this.getCurrentPosition();
             const userLat = position.coords.latitude;
             const userLng = position.coords.longitude;
+            const deviceAccuracy = position.coords.accuracy || 0;
             
             // Calculate distance to answer location
             const distance = this.calculateDistance(
@@ -228,12 +229,15 @@ class HuntDetailsApp {
             // Get minimum accuracy (default to 40 meters if not specified)
             const minimumAccuracy = this.currentHunt.scavengerHuntMinimumAccuracy || 40;
             
-            if (distance <= minimumAccuracy) {
+            // Account for device accuracy - success if user's uncertainty circle intersects target area
+            const totalAccuracy = deviceAccuracy + minimumAccuracy;
+            
+            if (distance <= totalAccuracy) {
                 // Correct location!
                 this.handleCorrectLocation();
             } else {
                 // Too far away
-                this.handleIncorrectLocation(distance, minimumAccuracy);
+                this.handleIncorrectLocation(distance, minimumAccuracy, deviceAccuracy);
             }
             
         } catch (error) {
@@ -297,16 +301,22 @@ class HuntDetailsApp {
         this.renderClueList();
     }
 
-    handleIncorrectLocation(distance, minimumAccuracy) {
+    handleIncorrectLocation(distance, minimumAccuracy, deviceAccuracy = 0) {
         const locationResult = document.getElementById('location-result');
         locationResult.className = 'location-result error';
         const distanceText = distance > 1000 ? 
             `${(distance / 1000).toFixed(1)} km` : 
             `${Math.round(distance)} meters`;
+        
+        const totalAccuracy = deviceAccuracy + minimumAccuracy;
+        const accuracyText = deviceAccuracy > 0 ? 
+            `${Math.round(totalAccuracy)} meters (including ${Math.round(deviceAccuracy)}m device accuracy)` :
+            `${minimumAccuracy} meters`;
+            
         locationResult.innerHTML = `
             ❌ Not quite right!<br>
             You're ${distanceText} away.<br>
-            Try to get within ${minimumAccuracy} meters.
+            Try to get within ${accuracyText}.
         `;
     }
 
