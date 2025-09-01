@@ -2,7 +2,7 @@
   "scavengerHuntTitle": "Ben R. McMullin Public School",
   "scavengerHuntDescription": "Explore the school yard",
   "scavengerHuntImage": "",
-  "scavengerHuntMinimumAccuracy": 20,
+  "scavengerHuntMinimumAccuracy": 30,
   "clues": [
     {
       "clueTitle": "The \"only\" way in...",
@@ -68,8 +68,8 @@
       "clueTitle": "Have a seat...",
       "clueDescription": "A view of the park.",
       "cluePicture": "",
-      "answerLatitude": 46.5247314,
-      "answerLongitude": -84.2979335,
+      "answerLatitude": 46.5242924,
+      "answerLongitude": -84.297157,
       "answerTitle": "Park bench",
       "answerDescription": "Up for more?",
       "answerPicture": ""
