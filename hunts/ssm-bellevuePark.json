@@ -2,7 +2,7 @@
   "scavengerHuntTitle": "Sault Ste. Marie's Bellevue Park",
   "scavengerHuntDescription": "A scavenger hunt around Sault Ste. Marie's largest park.",
   "scavengerHuntImage": "",
-  "scavengerHuntMinimumAccuracy": 15,
+  "scavengerHuntMinimumAccuracy": 50,
   "clues": [
     {
       "clueTitle": "Get wet!",
