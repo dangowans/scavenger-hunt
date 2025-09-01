@@ -1,8 +1,8 @@
-# Scavenger Hunt
+# Scavenger Hunt Sault Ste. Marie
 
 ![Scavenger Hunt](icons/icon-384x384.png)
 
-A simple scavenger hunt game, based in the real world.
+A simple scavenger hunt game, based in real world Sault Ste. Marie.
 
 ## Features
 

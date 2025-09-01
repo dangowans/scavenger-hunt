@@ -1,7 +1,7 @@
 {
-    "name": "Scavenger Hunt",
-    "short_name": "Scavenger Hunt",
-    "description": "A simple scavenger hunt game based in the real world",
+    "name": "Scavenger Hunt Sault Ste. Marie",
+    "short_name": "Scavenger Hunt SSM",
+    "description": "A simple scavenger hunt game based in real world Sault Ste. Marie.",
     "start_url": "https://dangowans.github.io/scavenger-hunt/",
     "display": "standalone",
     "background_color": "#667eea",
