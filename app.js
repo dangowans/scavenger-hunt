@@ -2,6 +2,7 @@
 class ScavengerHuntApp {
   constructor() {
     this.hunts = [];
+    this.isOnline = navigator.onLine;
     this.init();
   }
 
@@ -10,6 +11,7 @@ class ScavengerHuntApp {
     this.renderHuntList();
     this.setupServiceWorker();
     this.setupCreateHuntButton();
+    this.setupOnlineOfflineHandlers();
   }
 
   async loadHunts(bypassCache = false) {
@@ -188,6 +190,13 @@ class ScavengerHuntApp {
   async refreshHunts() {
     const huntListElement = document.getElementById("hunt-list");
 
+    // Check if online before attempting refresh
+    if (!this.isOnline) {
+      huntListElement.innerHTML =
+        '<div class="loading">Cannot refresh hunts while offline. Please check your internet connection.</div>';
+      return;
+    }
+
     // Show loading state
     huntListElement.innerHTML =
       '<div class="loading">Refreshing hunts...</div>';
@@ -207,6 +216,39 @@ class ScavengerHuntApp {
       console.error("Error refreshing hunts:", error);
       huntListElement.innerHTML =
         '<div class="loading">Error refreshing hunts. Please try again.</div>';
+    }
+  }
+
+  setupOnlineOfflineHandlers() {
+    // Listen for online/offline events
+    window.addEventListener('online', () => {
+      this.isOnline = true;
+      this.updateRefreshButtonState();
+      console.log('App is now online');
+    });
+
+    window.addEventListener('offline', () => {
+      this.isOnline = false;
+      this.updateRefreshButtonState();
+      console.log('App is now offline');
+    });
+
+    // Initial setup of refresh button state
+    this.updateRefreshButtonState();
+  }
+
+  updateRefreshButtonState() {
+    const refreshBtn = document.getElementById("refresh-hunts-btn");
+    if (refreshBtn) {
+      if (this.isOnline) {
+        refreshBtn.disabled = false;
+        refreshBtn.textContent = "🔄 Refresh Hunts";
+        refreshBtn.title = "Refresh hunt list from server";
+      } else {
+        refreshBtn.disabled = true;
+        refreshBtn.textContent = "🔄 Refresh Hunts (Offline)";
+        refreshBtn.title = "Cannot refresh while offline";
+      }
     }
   }
 }
