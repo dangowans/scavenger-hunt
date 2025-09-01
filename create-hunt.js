@@ -386,7 +386,7 @@ class HuntCreatorApp {
             formData.huntDetails.title = huntForm.querySelector('#hunt-title')?.value || '';
             formData.huntDetails.description = huntForm.querySelector('#hunt-description')?.value || '';
             formData.huntDetails.image = huntForm.querySelector('#hunt-image')?.value || '';
-            formData.huntDetails.accuracy = huntForm.querySelector('#hunt-accuracy')?.value || '15';
+            formData.huntDetails.accuracy = huntForm.querySelector('#hunt-accuracy')?.value || '50';
 
             // Save clues data
             const clueElements = document.querySelectorAll('.clue-form');
@@ -427,7 +427,7 @@ class HuntCreatorApp {
                 if (huntTitle) huntTitle.value = formData.huntDetails.title || '';
                 if (huntDescription) huntDescription.value = formData.huntDetails.description || '';
                 if (huntImage) huntImage.value = formData.huntDetails.image || '';
-                if (huntAccuracy) huntAccuracy.value = formData.huntDetails.accuracy || '15';
+                if (huntAccuracy) huntAccuracy.value = formData.huntDetails.accuracy || '50';
             }
 
             // Restore clue counter
