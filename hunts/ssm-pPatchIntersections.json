@@ -2,7 +2,7 @@
   "scavengerHuntTitle": "P-Patch Intersections",
   "scavengerHuntDescription": "How good are you with the street names in the P-Patch?",
   "scavengerHuntImage": "",
-  "scavengerHuntMinimumAccuracy": 50,
+  "scavengerHuntMinimumAccuracy": 40,
   "clues": [
     {
       "clueTitle": "Placid and Pageant",

@@ -2,7 +2,7 @@
   "scavengerHuntTitle": "P-Patch Parks",
   "scavengerHuntDescription": "Can you find all of the parks in the P-Patch neighbourhood?",
   "scavengerHuntImage": "",
-  "scavengerHuntMinimumAccuracy": 50,
+  "scavengerHuntMinimumAccuracy": 40,
   "clues": [
     {
       "clueTitle": "School",

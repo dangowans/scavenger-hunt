@@ -225,8 +225,8 @@ class HuntDetailsApp {
                 this.currentClue.answerLongitude
             );
             
-            // Get minimum accuracy (default to 50 meters if not specified)
-            const minimumAccuracy = this.currentHunt.scavengerHuntMinimumAccuracy || 50;
+            // Get minimum accuracy (default to 40 meters if not specified)
+            const minimumAccuracy = this.currentHunt.scavengerHuntMinimumAccuracy || 40;
             
             if (distance <= minimumAccuracy) {
                 // Correct location!
