@@ -1,0 +1,108 @@
+{
+  "scavengerHuntTitle": "Sault Ste. Marie's P-Patch Intersections",
+  "scavengerHuntDescription": "How good.are you with the street names in the P-Patch?",
+  "scavengerHuntImage": "",
+  "scavengerHuntMinimumAccuracy": 50,
+  "clues": [
+    {
+      "clueTitle": "Placid and Pageant",
+      "clueDescription": "Near the stop sign.",
+      "cluePicture": "",
+      "answerLatitude": 46.5228278,
+      "answerLongitude": -84.3003981,
+      "answerTitle": "Placid and Pageant",
+      "answerDescription": "Found them all yet?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Palace and Princess",
+      "clueDescription": "Near the stop sign, near the park.",
+      "cluePicture": "",
+      "answerLatitude": 46.5234551,
+      "answerLongitude": -84.3041425,
+      "answerTitle": "Palace and Princess",
+      "answerDescription": "Have you found them all yet?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Passmore and Plaintree",
+      "clueDescription": "Near the stop sign.",
+      "cluePicture": "",
+      "answerLatitude": 46.5266908,
+      "answerLongitude": -84.30598,
+      "answerTitle": "Passmore and Plaintree",
+      "answerDescription": "Have you found them all yet?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Pleasant and Pinemore",
+      "clueDescription": "Near the yield sign.",
+      "cluePicture": "",
+      "answerLatitude": 46.5294964,
+      "answerLongitude": -84.3020064,
+      "answerTitle": "Pleasant and Pinemore",
+      "answerDescription": "Have you found them all yet?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Panoramic and Primrose",
+      "clueDescription": "Near the yield sign.",
+      "cluePicture": "",
+      "answerLatitude": 46.5316188,
+      "answerLongitude": -84.3059228,
+      "answerTitle": "Panoramic and Primrose",
+      "answerDescription": "Have you found them all yet?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Princeton and Plummer",
+      "clueDescription": "Near the yield sign.",
+      "cluePicture": "",
+      "answerLatitude": 46.531422,
+      "answerLongitude": -84.3000398,
+      "answerTitle": "Princeton and Plummer",
+      "answerDescription": "Have you found them all yet?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Pentagon and Promenade",
+      "clueDescription": "Near the stop sign.",
+      "cluePicture": "",
+      "answerLatitude": 46.528639,
+      "answerLongitude": -84.29802,
+      "answerTitle": "Pentagon and Promenade",
+      "answerDescription": "Have you found them all yet?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Parkview and Parkview",
+      "clueDescription": "Near the yield sign.",
+      "cluePicture": "",
+      "answerLatitude": 46.5265467,
+      "answerLongitude": -84.2937456,
+      "answerTitle": "Parkview and Parkview",
+      "answerDescription": "Have you found them all yet?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Park Place and Park Place",
+      "clueDescription": "Where Drive meets Crescent.",
+      "cluePicture": "",
+      "answerLatitude": 46.525498,
+      "answerLongitude": -84.2937141,
+      "answerTitle": "Park Place and Park Place",
+      "answerDescription": "Have you found them all yet?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Peach and Paradise",
+      "clueDescription": "Near the yield sign.",
+      "cluePicture": "",
+      "answerLatitude": 46.5263865,
+      "answerLongitude": -84.2966421,
+      "answerTitle": "Peach and Paradise",
+      "answerDescription": "Have you found them all yet?",
+      "answerPicture": ""
+    }
+  ]
+}
