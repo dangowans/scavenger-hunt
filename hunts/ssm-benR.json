@@ -2,7 +2,7 @@
   "scavengerHuntTitle": "Ben R. McMullin Public School",
   "scavengerHuntDescription": "Explore the school yard",
   "scavengerHuntImage": "",
-  "scavengerHuntMinimumAccuracy": 40,
+  "scavengerHuntMinimumAccuracy": 30,
   "clues": [
     {
       "clueTitle": "The \"only\" way in...",
