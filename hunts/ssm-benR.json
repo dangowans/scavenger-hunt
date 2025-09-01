@@ -1,0 +1,98 @@
+{
+  "scavengerHuntTitle": "Ben R. McMullin Public School",
+  "scavengerHuntDescription": "Explore the school yard",
+  "scavengerHuntImage": "",
+  "scavengerHuntMinimumAccuracy": 40,
+  "clues": [
+    {
+      "clueTitle": "The \"only\" way in...",
+      "clueDescription": "\"Entrance Only\"",
+      "cluePicture": "",
+      "answerLatitude": 46.524123,
+      "answerLongitude": -84.2988045,
+      "answerTitle": "The \"Entrance Only\" sign",
+      "answerDescription": "Did you enter in the right place?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "O Canada",
+      "clueDescription": "Near the flagpole.",
+      "cluePicture": "",
+      "answerLatitude": 46.524329,
+      "answerLongitude": -84.2987813,
+      "answerTitle": "The Canada flag pole",
+      "answerDescription": "Do you know all the words to the anthem?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Three pointer",
+      "clueDescription": "Take a shot while facing Paradise.",
+      "cluePicture": "",
+      "answerLatitude": 46.5251731,
+      "answerLongitude": -84.2985884,
+      "answerTitle": "Basketball ball nets",
+      "answerDescription": "Swish!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "A place in the shade",
+      "clueDescription": "A quiet place with trees.",
+      "cluePicture": "",
+      "answerLatitude": 46.5253891,
+      "answerLongitude": -84.2982132,
+      "answerTitle": "Lloyd's Grove",
+      "answerDescription": "A nice break from the sun.",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "The back door",
+      "clueDescription": "A footpath off the field.",
+      "cluePicture": "",
+      "answerLatitude": 46.5254068,
+      "answerLongitude": -84.2976638,
+      "answerTitle": "Footpath to Peach Drive",
+      "answerDescription": "Leaving so soon?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "More than three squares..",
+      "clueDescription": "Between the two game boards.",
+      "cluePicture": "",
+      "answerLatitude": 46.524904,
+      "answerLongitude": -84.2984922,
+      "answerTitle": "Four Square Boards",
+      "answerDescription": "Do you know how to play?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Have a seat...",
+      "clueDescription": "A view of the park.",
+      "cluePicture": "",
+      "answerLatitude": 46.5247314,
+      "answerLongitude": -84.2979335,
+      "answerTitle": "Park bench",
+      "answerDescription": "Up for more?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Swing like a big kid",
+      "clueDescription": "In the middle of the swing set.",
+      "cluePicture": "",
+      "answerLatitude": 46.5245934,
+      "answerLongitude": -84.2979327,
+      "answerTitle": "The big swing set",
+      "answerDescription": "Which colour is your favourite?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Leaving so soon?",
+      "clueDescription": "Better stop first.",
+      "cluePicture": "",
+      "answerLatitude": 46.5250196,
+      "answerLongitude": -84.2987362,
+      "answerTitle": "Stop sign leaving the parking lot",
+      "answerDescription": "Until next time!",
+      "answerPicture": ""
+    }
+  ]
+}
