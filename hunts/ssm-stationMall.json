@@ -1,6 +1,6 @@
 {
   "scavengerHuntTitle": "Station Mall",
-  "scavengerHuntDescription": "A tour of the \"Centre of it all\"",
+  "scavengerHuntDescription": "A tour of the \"Centre of it all\". Note that a strong device is required for an indoor hunt!",
   "scavengerHuntImage": "images/stationMall.jpg",
   "scavengerHuntMinimumAccuracy": 30,
   "clues": [
