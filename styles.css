@@ -665,7 +665,7 @@ footer {
 }
 
 .clear-progress-btn {
-    background: #3498db;
+    background: #e74c3c;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -680,7 +680,7 @@ footer {
 }
 
 .clear-progress-btn:hover {
-    background: #2980b9;
+    background: #c0392b;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
 }
@@ -690,7 +690,7 @@ footer {
 }
 
 .refresh-app-btn {
-    background: #3498db;
+    background: #e74c3c;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -699,15 +699,15 @@ footer {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
     margin: 10px;
     width: 100%;
 }
 
 .refresh-app-btn:hover {
-    background: #2980b9;
+    background: #c0392b;
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
 }
 
 .refresh-app-btn:active {

@@ -247,10 +247,28 @@ class ScavengerHuntApp {
   async refreshApp() {
     if (
       confirm(
-        "This will clear all caches and redownload all files. The app will reload. Continue?"
+        "This will clear all caches and redownload all files. User settings and progress will be preserved. The app will reload. Continue?"
       )
     ) {
       try {
+        // Preserve user settings and progress before clearing localStorage
+        const keysToPreserve = [];
+        const preservedData = {};
+        
+        // Preserve user settings
+        if (localStorage.getItem('revealMapEnabled')) {
+          keysToPreserve.push('revealMapEnabled');
+          preservedData['revealMapEnabled'] = localStorage.getItem('revealMapEnabled');
+        }
+        
+        // Preserve hunt progress data
+        Object.keys(localStorage).forEach(key => {
+          if (key.startsWith('hunt_progress_')) {
+            keysToPreserve.push(key);
+            preservedData[key] = localStorage.getItem(key);
+          }
+        });
+
         // Clear all caches
         if ('caches' in window) {
           const cacheNames = await caches.keys();
@@ -270,11 +288,16 @@ class ScavengerHuntApp {
         // Clear localStorage
         localStorage.clear();
 
+        // Restore preserved settings and progress
+        Object.keys(preservedData).forEach(key => {
+          localStorage.setItem(key, preservedData[key]);
+        });
+
         // Clear sessionStorage
         sessionStorage.clear();
 
         // Show confirmation and reload
-        alert("App cache cleared! The page will now reload.");
+        alert("App cache cleared! User settings and progress have been preserved. The page will now reload.");
         window.location.reload(true);
       } catch (error) {
         console.error("Error refreshing app:", error);
