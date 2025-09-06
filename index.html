@@ -14,6 +14,7 @@
         <header>
             <h1>🔍 Scavenger Hunt Sault Ste. Marie</h1>
             <p>Choose your adventure!</p>
+            <button id="settings-btn" class="settings-btn">⚙️ Settings</button>
         </header>
 
         <main id="hunt-list">
@@ -24,10 +25,33 @@
             <p>Tap a hunt to begin your adventure!</p>
             <div class="footer-actions">
                 <button id="refresh-hunts-btn" class="refresh-btn">🔄 Refresh Hunts</button>
-                <button id="clear-all-progress-btn" class="clear-progress-btn">🗑️ Clear All Progress</button>
                 <button id="create-hunt-btn" class="create-hunt-btn">🔧 Create New Hunt</button>
             </div>
         </footer>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>⚙️ Settings</h2>
+                <button id="close-settings" class="close-btn">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="setting-group">
+                    <label class="setting-label">
+                        <input type="checkbox" id="reveal-map-setting"> 
+                        <span class="setting-text">Enable "Reveal Map" buttons</span>
+                    </label>
+                    <small class="setting-description">Show map buttons in clue details (requires internet connection)</small>
+                </div>
+                
+                <div class="setting-group">
+                    <button id="clear-all-progress-btn" class="clear-progress-btn">🗑️ Clear All Progress</button>
+                    <small class="setting-description">Remove all saved progress from all hunts</small>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="app.js"></script>

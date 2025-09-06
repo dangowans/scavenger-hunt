@@ -4,12 +4,15 @@ class HuntDetailsApp {
         this.currentHunt = null;
         this.huntProgress = {};
         this.currentClue = null;
+        this.isOnline = navigator.onLine;
+        this.currentMap = null;
         this.init();
     }
 
     init() {
         this.loadHunt();
         this.setupEventListeners();
+        this.setupOnlineOfflineHandlers();
         this.renderHunt();
     }
 
@@ -59,6 +62,10 @@ class HuntDetailsApp {
 
         document.getElementById('reveal-image').addEventListener('click', () => {
             this.revealImage();
+        });
+
+        document.getElementById('reveal-map').addEventListener('click', () => {
+            this.revealMap();
         });
 
         // Location check
@@ -154,10 +161,18 @@ class HuntDetailsApp {
     }
 
     resetModal() {
+        // Clean up any existing map
+        if (this.currentMap) {
+            this.currentMap.remove();
+            this.currentMap = null;
+        }
+        
         // Hide all reveal sections
         document.getElementById('clue-description').classList.add('hidden');
         document.getElementById('clue-image-container').classList.add('hidden');
+        document.getElementById('clue-map-container').classList.add('hidden');
         document.getElementById('reveal-image').classList.add('hidden');
+        document.getElementById('reveal-map').classList.add('hidden');
         document.getElementById('answer-content').classList.add('hidden');
         
         // Show reveal description button
@@ -166,6 +181,7 @@ class HuntDetailsApp {
         // Clear previous content
         document.getElementById('clue-description').innerHTML = '';
         document.getElementById('clue-image-container').innerHTML = '';
+        document.getElementById('clue-map-container').innerHTML = '';
         document.getElementById('location-result').innerHTML = '';
         document.getElementById('answer-title').textContent = '';
         document.getElementById('answer-description').textContent = '';
@@ -190,6 +206,9 @@ class HuntDetailsApp {
         if (this.currentClue.cluePicture) {
             document.getElementById('reveal-image').classList.remove('hidden');
         }
+        
+        // Show reveal map button if maps are enabled and we're online or always show if enabled
+        this.updateRevealMapButtonVisibility();
     }
 
     revealImage() {
@@ -201,6 +220,88 @@ class HuntDetailsApp {
             // Hide reveal image button
             document.getElementById('reveal-image').classList.add('hidden');
         }
+        
+        // Show reveal map button if maps are enabled and appropriate
+        this.updateRevealMapButtonVisibility();
+    }
+
+    revealMap() {
+        if (!this.currentClue.answerLatitude || !this.currentClue.answerLongitude) {
+            return;
+        }
+
+        const mapContainer = document.getElementById('clue-map-container');
+        
+        // Clean up any existing map
+        if (this.currentMap) {
+            this.currentMap.remove();
+            this.currentMap = null;
+        }
+        
+        // Create map container with unique ID
+        const mapId = 'clue-map-' + Date.now();
+        mapContainer.innerHTML = `<div id="${mapId}" class="map-container"></div>`;
+        mapContainer.classList.remove('hidden');
+        
+        // Hide reveal map button
+        document.getElementById('reveal-map').classList.add('hidden');
+        
+        // Initialize map
+        try {
+            this.currentMap = L.map(mapId).setView([this.currentClue.answerLatitude, this.currentClue.answerLongitude], 16);
+            
+            // Add tile layer if online
+            if (this.isOnline) {
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(this.currentMap);
+            }
+            
+            // Add marker
+            L.marker([this.currentClue.answerLatitude, this.currentClue.answerLongitude])
+                .addTo(this.currentMap);
+        } catch (error) {
+            console.error('Error creating map:', error);
+            // Fallback display
+            mapContainer.innerHTML = `
+                <div class="map-container">
+                    <div class="map-offline">
+                        <div class="icon">📍</div>
+                        <div>Location: ${this.currentClue.answerLatitude.toFixed(4)}, ${this.currentClue.answerLongitude.toFixed(4)}</div>
+                        <div style="margin-top: 10px; font-size: 0.9rem;">Map could not be loaded</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    updateRevealMapButtonVisibility() {
+        const revealMapBtn = document.getElementById('reveal-map');
+        const mapEnabled = this.getMapSetting();
+        
+        // Show map button if maps are enabled in settings
+        if (mapEnabled && this.currentClue.answerLatitude && this.currentClue.answerLongitude) {
+            revealMapBtn.classList.remove('hidden');
+        } else {
+            revealMapBtn.classList.add('hidden');
+        }
+    }
+
+    getMapSetting() {
+        const setting = localStorage.getItem('revealMapEnabled');
+        return setting === null ? true : setting === 'true'; // Default to enabled
+    }
+
+    setupOnlineOfflineHandlers() {
+        window.addEventListener('online', () => {
+            this.isOnline = true;
+            console.log('Hunt app is now online');
+        });
+
+        window.addEventListener('offline', () => {
+            this.isOnline = false;
+            console.log('Hunt app is now offline');
+        });
     }
 
     async checkLocation() {

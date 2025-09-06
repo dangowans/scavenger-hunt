@@ -6,6 +6,7 @@
     <title>Scavenger Hunt Sault Ste. Marie</title>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="lib/leaflet.css">
     <meta name="theme-color" content="#2196F3">
     <link rel="apple-touch-icon" href="icons/icon-192x192.png">
 </head>
@@ -42,6 +43,8 @@
                         <div id="clue-description" class="hidden"></div>
                         <button id="reveal-image" class="reveal-btn hidden">Reveal Image</button>
                         <div id="clue-image-container" class="hidden"></div>
+                        <button id="reveal-map" class="reveal-btn hidden">🗺️ Reveal Map</button>
+                        <div id="clue-map-container" class="hidden"></div>
                     </div>
                     <div class="location-section">
                         <button id="check-location" class="location-btn">📍 Check Location</button>
@@ -72,6 +75,7 @@
         </div>
     </div>
 
+    <script src="lib/leaflet.js"></script>
     <script src="hunt.js"></script>
 </body>
 </html>

@@ -11,6 +11,7 @@ class ScavengerHuntApp {
     this.renderHuntList();
     this.setupServiceWorker();
     this.setupCreateHuntButton();
+    this.setupSettingsModal();
     this.setupOnlineOfflineHandlers();
   }
 
@@ -146,14 +147,6 @@ class ScavengerHuntApp {
       });
     }
 
-    // Setup clear all progress button
-    const clearAllBtn = document.getElementById("clear-all-progress-btn");
-    if (clearAllBtn) {
-      clearAllBtn.addEventListener("click", () => {
-        this.clearAllProgress();
-      });
-    }
-
     // Setup refresh hunts button
     const refreshBtn = document.getElementById("refresh-hunts-btn");
     if (refreshBtn) {
@@ -162,6 +155,62 @@ class ScavengerHuntApp {
         await this.refreshHunts();
       });
     }
+  }
+
+  setupSettingsModal() {
+    // Settings button
+    const settingsBtn = document.getElementById("settings-btn");
+    if (settingsBtn) {
+      settingsBtn.addEventListener("click", () => {
+        this.openSettingsModal();
+      });
+    }
+
+    // Close settings modal
+    const closeSettingsBtn = document.getElementById("close-settings");
+    if (closeSettingsBtn) {
+      closeSettingsBtn.addEventListener("click", () => {
+        this.closeSettingsModal();
+      });
+    }
+
+    // Click outside modal to close
+    const settingsModal = document.getElementById("settings-modal");
+    if (settingsModal) {
+      settingsModal.addEventListener("click", (e) => {
+        if (e.target === settingsModal) {
+          this.closeSettingsModal();
+        }
+      });
+    }
+
+    // Map setting toggle
+    const mapSetting = document.getElementById("reveal-map-setting");
+    if (mapSetting) {
+      // Load current setting
+      const currentSetting = localStorage.getItem('revealMapEnabled');
+      mapSetting.checked = currentSetting === null ? true : currentSetting === 'true';
+      
+      mapSetting.addEventListener("change", () => {
+        localStorage.setItem('revealMapEnabled', mapSetting.checked.toString());
+      });
+    }
+
+    // Clear all progress button (moved from setupCreateHuntButton)
+    const clearAllBtn = document.getElementById("clear-all-progress-btn");
+    if (clearAllBtn) {
+      clearAllBtn.addEventListener("click", () => {
+        this.clearAllProgress();
+      });
+    }
+  }
+
+  openSettingsModal() {
+    document.getElementById("settings-modal").style.display = "block";
+  }
+
+  closeSettingsModal() {
+    document.getElementById("settings-modal").style.display = "none";
   }
 
   clearAllProgress() {
