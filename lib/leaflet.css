@@ -1,0 +1,67 @@
+/* Leaflet CSS placeholder - In production, use actual Leaflet CSS */
+.leaflet-container {
+    background: #ddd;
+    outline: 0;
+    font: 12px/1.5 Arial, sans-serif;
+}
+
+.leaflet-map-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.leaflet-container {
+    overflow: hidden;
+}
+
+.leaflet-tile {
+    filter: inherit;
+    visibility: hidden;
+}
+
+.leaflet-tile-loaded {
+    visibility: inherit;
+}
+
+.leaflet-zoom-box {
+    width: 0;
+    height: 0;
+    border: 2px dotted #05f;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* Map container */
+.map-container {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 15px;
+    border: 2px solid #3498db;
+}
+
+/* Offline map fallback */
+.map-offline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ecf0f1;
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    flex-direction: column;
+}
+
+.map-offline .icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
