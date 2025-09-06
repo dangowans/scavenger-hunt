@@ -267,7 +267,7 @@ class HuntDetailsApp {
         
         // Initialize map
         try {
-            this.currentMap = L.map(mapId).setView([this.currentClue.answerLatitude, this.currentClue.answerLongitude], 16);
+            this.currentMap = L.map(mapId).setView([this.currentClue.answerLatitude, this.currentClue.answerLongitude], 18);
             
             // Add tile layer if online
             if (this.isOnline) {
@@ -308,7 +308,7 @@ class HuntDetailsApp {
 
     getMapSetting() {
         const setting = localStorage.getItem('revealMapEnabled');
-        return setting === null ? true : setting === 'true'; // Default to enabled
+        return setting === null ? false : setting === 'true'; // Default to disabled
     }
 
     setupOnlineOfflineHandlers() {
