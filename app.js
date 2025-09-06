@@ -245,6 +245,12 @@ class ScavengerHuntApp {
   }
 
   async refreshApp() {
+    // Check if online before attempting refresh
+    if (!this.isOnline) {
+      alert("Cannot refresh app while offline. Please check your internet connection and try again.");
+      return;
+    }
+
     if (
       confirm(
         "This will clear all caches and redownload all files. User settings and progress will be preserved. The app will reload. Continue?"
