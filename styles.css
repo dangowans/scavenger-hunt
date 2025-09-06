@@ -665,7 +665,7 @@ footer {
 }
 
 .clear-progress-btn {
-    background: #e74c3c;
+    background: #3498db;
     color: white;
     border: none;
     padding: 12px 24px;
@@ -680,7 +680,7 @@ footer {
 }
 
 .clear-progress-btn:hover {
-    background: #c0392b;
+    background: #2980b9;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
 }
