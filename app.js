@@ -189,7 +189,7 @@ class ScavengerHuntApp {
     if (mapSetting) {
       // Load current setting
       const currentSetting = localStorage.getItem('revealMapEnabled');
-      mapSetting.checked = currentSetting === null ? true : currentSetting === 'true';
+      mapSetting.checked = currentSetting === null ? false : currentSetting === 'true';
       
       mapSetting.addEventListener("change", () => {
         localStorage.setItem('revealMapEnabled', mapSetting.checked.toString());
@@ -201,6 +201,14 @@ class ScavengerHuntApp {
     if (clearAllBtn) {
       clearAllBtn.addEventListener("click", () => {
         this.clearAllProgress();
+      });
+    }
+
+    // Refresh app button
+    const refreshAppBtn = document.getElementById("refresh-app-btn");
+    if (refreshAppBtn) {
+      refreshAppBtn.addEventListener("click", () => {
+        this.refreshApp();
       });
     }
   }
@@ -233,6 +241,45 @@ class ScavengerHuntApp {
 
       // Show confirmation
       alert("All progress has been cleared!");
+    }
+  }
+
+  async refreshApp() {
+    if (
+      confirm(
+        "This will clear all caches and redownload all files. The app will reload. Continue?"
+      )
+    ) {
+      try {
+        // Clear all caches
+        if ('caches' in window) {
+          const cacheNames = await caches.keys();
+          await Promise.all(
+            cacheNames.map(cacheName => caches.delete(cacheName))
+          );
+        }
+
+        // Unregister service worker
+        if ('serviceWorker' in navigator) {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          await Promise.all(
+            registrations.map(registration => registration.unregister())
+          );
+        }
+
+        // Clear localStorage
+        localStorage.clear();
+
+        // Clear sessionStorage
+        sessionStorage.clear();
+
+        // Show confirmation and reload
+        alert("App cache cleared! The page will now reload.");
+        window.location.reload(true);
+      } catch (error) {
+        console.error("Error refreshing app:", error);
+        alert("Error refreshing app. Please try again or refresh the page manually.");
+      }
     }
   }
 
