@@ -677,6 +677,7 @@ footer {
     box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
     margin: 10px;
     width: 100%;
+    text-align: center;
 }
 
 .clear-progress-btn:hover {
@@ -702,6 +703,7 @@ footer {
     box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
     margin: 10px;
     width: 100%;
+    text-align: center;
 }
 
 .refresh-app-btn:hover {
