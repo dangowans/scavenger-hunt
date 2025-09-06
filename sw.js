@@ -1,5 +1,5 @@
 // Service Worker for offline functionality
-const CACHE_NAME = 'scavenger-hunt-v20250906.3';
+const CACHE_NAME = 'scavenger-hunt-v20250906.4';
 
 const rootUrl = 'https://dangowans.github.io/scavenger-hunt';
 
