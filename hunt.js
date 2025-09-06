@@ -10,10 +10,29 @@ class HuntDetailsApp {
     }
 
     init() {
+        this.setupLeafletCompatibility();
         this.loadHunt();
         this.setupEventListeners();
         this.setupOnlineOfflineHandlers();
         this.renderHunt();
+    }
+
+    setupLeafletCompatibility() {
+        // Leaflet 2.0 compatibility layer - provides the old API using the new API
+        if (typeof window.L !== 'undefined' && !window.L.map) {
+            // Add the old factory functions using the new constructors
+            window.L.map = function(element, options) {
+                return new L.Map(element, options);
+            };
+            
+            window.L.marker = function(latlng, options) {
+                return new L.Marker(latlng, options);
+            };
+            
+            window.L.tileLayer = function(urlTemplate, options) {
+                return new L.TileLayer(urlTemplate, options);
+            };
+        }
     }
 
     loadHunt() {
