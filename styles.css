@@ -24,9 +24,11 @@ header {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 20px;
+    padding-right: 120px; /* Add space for settings button */
     margin-bottom: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    position: relative; /* Enable absolute positioning for settings button */
 }
 
 header h1 {
@@ -950,5 +952,6 @@ footer {
     header {
         text-align: center;
         position: relative;
+        padding-right: 20px; /* Reset padding on mobile */
     }
 }
