@@ -795,6 +795,7 @@ footer {
     width: 100%;
     height: 100%;
     pointer-events: none;
+    z-index: 1000;
 }
 
 .firework {
@@ -879,6 +880,39 @@ footer {
         0 0 40px #2ecc71,
         0 0 60px #2ecc71;
     animation: firework-explosion-7 2.8s ease-out infinite 0.3s;
+}
+
+.firework-8 {
+    left: 35%;
+    top: 25%;
+    background: #e67e22;
+    box-shadow: 
+        0 0 20px #e67e22,
+        0 0 40px #e67e22,
+        0 0 60px #e67e22;
+    animation: firework-explosion-1 2.3s ease-out infinite 1.2s;
+}
+
+.firework-9 {
+    right: 15%;
+    top: 35%;
+    background: #8e44ad;
+    box-shadow: 
+        0 0 20px #8e44ad,
+        0 0 40px #8e44ad,
+        0 0 60px #8e44ad;
+    animation: firework-explosion-2 2.6s ease-out infinite 0.7s;
+}
+
+.firework-10 {
+    left: 25%;
+    top: 75%;
+    background: #16a085;
+    box-shadow: 
+        0 0 20px #16a085,
+        0 0 40px #16a085,
+        0 0 60px #16a085;
+    animation: firework-explosion-3 2.1s ease-out infinite 1.8s;
 }
 
 @keyframes celebrate-bounce {
@@ -1107,6 +1141,63 @@ footer {
     .create-hunt-btn {
         width: 100%;
         margin: 0;
+    }
+    
+    /* Mobile-specific firework positioning */
+    .firework {
+        width: 8px;
+        height: 8px;
+    }
+    
+    /* Position fireworks around the modal on mobile */
+    .firework-1 {
+        left: 5%;
+        top: 8%;
+    }
+    
+    .firework-2 {
+        right: 5%;
+        top: 12%;
+    }
+    
+    .firework-3 {
+        left: 8%;
+        top: 88%;
+    }
+    
+    .firework-4 {
+        right: 8%;
+        top: 92%;
+    }
+    
+    .firework-5 {
+        left: 1%;
+        top: 40%;
+    }
+    
+    .firework-6 {
+        right: 1%;
+        top: 45%;
+    }
+    
+    .firework-7 {
+        left: 48%;
+        top: 3%;
+    }
+    
+    .firework-8 {
+        right: 12%;
+        top: 5%;
+    }
+    
+    .firework-9 {
+        left: 12%;
+        top: 95%;
+    }
+    
+    .firework-10 {
+        right: 20%;
+        top: 88%;
     }
 }
 
