@@ -346,8 +346,8 @@ class HuntDetailsApp {
                 this.currentClue.answerLongitude
             );
             
-            // Get minimum accuracy (default to 40 meters if not specified)
-            const minimumAccuracy = this.currentHunt.scavengerHuntMinimumAccuracy || 40;
+            // Get minimum accuracy (default to 30 meters if not specified)
+            const minimumAccuracy = this.currentHunt.scavengerHuntMinimumAccuracy || 30;
             
             // Account for device accuracy - success if user's uncertainty circle intersects target area
             const totalAccuracy = deviceAccuracy + minimumAccuracy;
