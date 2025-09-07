@@ -3,7 +3,26 @@ class HuntCreatorApp {
     constructor() {
         this.clueCounter = 0;
         this.storageKey = 'hunt_creation_progress';
+        this.setupLeafletCompatibility();
         this.init();
+    }
+
+    setupLeafletCompatibility() {
+        // Leaflet 2.0 compatibility layer - provides the old API using the new API
+        if (typeof window.L !== 'undefined' && !window.L.map) {
+            // Add the old factory functions using the new constructors
+            window.L.map = function(element, options) {
+                return new L.Map(element, options);
+            };
+            
+            window.L.marker = function(latlng, options) {
+                return new L.Marker(latlng, options);
+            };
+            
+            window.L.tileLayer = function(urlTemplate, options) {
+                return new L.TileLayer(urlTemplate, options);
+            };
+        }
     }
 
     init() {
@@ -85,6 +104,14 @@ class HuntCreatorApp {
             });
         }
 
+        // Add preview location button listener
+        const previewLocationBtn = document.getElementById(`preview-location-${clueId}`);
+        if (previewLocationBtn) {
+            previewLocationBtn.addEventListener('click', () => {
+                this.previewLocation(clueId);
+            });
+        }
+
         // Add auto-save listeners for the new clue inputs
         const clueElement = document.getElementById(`clue-${clueId}`);
         if (clueElement) {
@@ -92,6 +119,11 @@ class HuntCreatorApp {
             inputs.forEach(input => {
                 input.addEventListener('input', () => {
                     this.saveFormData();
+                    
+                    // Enable preview button if coordinates are available
+                    if (input.name === 'answerLatitude' || input.name === 'answerLongitude') {
+                        this.updatePreviewButtonState(clueId);
+                    }
                 });
             });
         }
@@ -145,6 +177,14 @@ class HuntCreatorApp {
                                 📍 Get Current Location
                             </button>
                         </div>
+                        
+                        <div class="form-group">
+                            <button type="button" id="preview-location-${clueId}" class="location-btn secondary" disabled>
+                                🗺️ Preview Location
+                            </button>
+                        </div>
+                        
+                        <div id="location-accuracy-${clueId}" class="location-accuracy hidden"></div>
                     </div>
                 </div>
                 
@@ -191,6 +231,8 @@ class HuntCreatorApp {
         const button = document.getElementById(`get-location-${clueId}`);
         const latitudeInput = document.getElementById(`answer-latitude-${clueId}`);
         const longitudeInput = document.getElementById(`answer-longitude-${clueId}`);
+        const previewBtn = document.getElementById(`preview-location-${clueId}`);
+        const accuracyDiv = document.getElementById(`location-accuracy-${clueId}`);
 
         button.textContent = '📍 Getting location...';
         button.disabled = true;
@@ -201,6 +243,28 @@ class HuntCreatorApp {
             longitudeInput.value = position.coords.longitude;
             button.textContent = '✅ Location captured';
             
+            // Show accuracy information
+            const accuracy = Math.round(position.coords.accuracy || 0);
+            const minimumAccuracy = parseInt(document.getElementById('hunt-accuracy')?.value || '30');
+            
+            accuracyDiv.className = 'location-accuracy';
+            accuracyDiv.innerHTML = `
+                <div class="accuracy-info">
+                    📍 Location accuracy: ${accuracy} meters
+                    ${accuracy > minimumAccuracy ? '<div class="accuracy-warning">⚠️ Warning: Location accuracy is lower than minimum accuracy (' + minimumAccuracy + 'm)</div>' : ''}
+                </div>
+            `;
+            
+            // Show warning alert if accuracy is too low
+            if (accuracy > minimumAccuracy) {
+                alert(`⚠️ Warning: The captured location has an accuracy of ${accuracy} meters, which is lower than your hunt's minimum accuracy of ${minimumAccuracy} meters. Players may have difficulty checking in at this location.`);
+            }
+            
+            // Enable preview button
+            if (previewBtn) {
+                previewBtn.disabled = false;
+            }
+            
             setTimeout(() => {
                 button.textContent = '📍 Get Current Location';
                 button.disabled = false;
@@ -209,10 +273,144 @@ class HuntCreatorApp {
             console.error('Error getting location:', error);
             button.textContent = '❌ Location failed';
             
+            // Hide accuracy info on error
+            accuracyDiv.className = 'location-accuracy hidden';
+            
             setTimeout(() => {
                 button.textContent = '📍 Get Current Location';
                 button.disabled = false;
             }, 2000);
+        }
+    }
+
+    updatePreviewButtonState(clueId) {
+        const latitudeInput = document.getElementById(`answer-latitude-${clueId}`);
+        const longitudeInput = document.getElementById(`answer-longitude-${clueId}`);
+        const previewBtn = document.getElementById(`preview-location-${clueId}`);
+        
+        if (latitudeInput && longitudeInput && previewBtn) {
+            const latitude = parseFloat(latitudeInput.value);
+            const longitude = parseFloat(longitudeInput.value);
+            
+            previewBtn.disabled = isNaN(latitude) || isNaN(longitude);
+        }
+    }
+
+    previewLocation(clueId) {
+        const latitudeInput = document.getElementById(`answer-latitude-${clueId}`);
+        const longitudeInput = document.getElementById(`answer-longitude-${clueId}`);
+        
+        const latitude = parseFloat(latitudeInput.value);
+        const longitude = parseFloat(longitudeInput.value);
+        
+        if (isNaN(latitude) || isNaN(longitude)) {
+            alert('Please capture a location first or enter valid coordinates.');
+            return;
+        }
+        
+        this.showLocationPreview(latitude, longitude, clueId);
+    }
+
+    showLocationPreview(latitude, longitude, clueId) {
+        // Create or show the preview modal
+        let modal = document.getElementById('location-preview-modal');
+        if (!modal) {
+            modal = this.createLocationPreviewModal();
+            document.body.appendChild(modal);
+        }
+        
+        // Update modal title
+        const clueTitle = document.getElementById(`clue-title-${clueId}`)?.value || `Clue ${clueId}`;
+        document.getElementById('preview-modal-title').textContent = `Preview Location - ${clueTitle}`;
+        
+        // Show modal
+        modal.style.display = 'block';
+        
+        // Initialize map
+        this.initializePreviewMap(latitude, longitude);
+    }
+
+    createLocationPreviewModal() {
+        const modal = document.createElement('div');
+        modal.id = 'location-preview-modal';
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-content large">
+                <div class="modal-header">
+                    <h2 id="preview-modal-title">Preview Location</h2>
+                    <button id="close-location-preview" class="close-btn">×</button>
+                </div>
+                <div class="modal-body">
+                    <div id="preview-map" style="height: 400px; width: 100%;"></div>
+                </div>
+            </div>
+        `;
+        
+        // Add event listeners
+        modal.querySelector('#close-location-preview').addEventListener('click', () => {
+            this.closeLocationPreview();
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                this.closeLocationPreview();
+            }
+        });
+        
+        return modal;
+    }
+
+    initializePreviewMap(latitude, longitude) {
+        const mapContainer = document.getElementById('preview-map');
+        
+        // Clear existing map if any
+        if (this.previewMap) {
+            this.previewMap.remove();
+            this.previewMap = null;
+        }
+        
+        // Clear container
+        mapContainer.innerHTML = '';
+        
+        try {
+            // Initialize map
+            this.previewMap = L.map('preview-map').setView([latitude, longitude], 16);
+            
+            // Add tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(this.previewMap);
+            
+            // Add marker
+            L.marker([latitude, longitude])
+                .addTo(this.previewMap)
+                .bindPopup(`Location: ${latitude.toFixed(6)}, ${longitude.toFixed(6)}`)
+                .openPopup();
+        } catch (error) {
+            console.error('Error creating preview map:', error);
+            // Fallback display
+            mapContainer.innerHTML = `
+                <div class="map-container">
+                    <div class="map-offline">
+                        <div class="icon">📍</div>
+                        <div>Location: ${latitude.toFixed(6)}, ${longitude.toFixed(6)}</div>
+                        <div style="margin-top: 10px; font-size: 0.9rem;">Map could not be loaded</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    closeLocationPreview() {
+        const modal = document.getElementById('location-preview-modal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+        
+        // Clean up map
+        if (this.previewMap) {
+            this.previewMap.remove();
+            this.previewMap = null;
         }
     }
 
@@ -386,7 +584,7 @@ class HuntCreatorApp {
             formData.huntDetails.title = huntForm.querySelector('#hunt-title')?.value || '';
             formData.huntDetails.description = huntForm.querySelector('#hunt-description')?.value || '';
             formData.huntDetails.image = huntForm.querySelector('#hunt-image')?.value || '';
-            formData.huntDetails.accuracy = huntForm.querySelector('#hunt-accuracy')?.value || '40';
+            formData.huntDetails.accuracy = huntForm.querySelector('#hunt-accuracy')?.value || '30';
 
             // Save clues data
             const clueElements = document.querySelectorAll('.clue-form');
@@ -427,7 +625,7 @@ class HuntCreatorApp {
                 if (huntTitle) huntTitle.value = formData.huntDetails.title || '';
                 if (huntDescription) huntDescription.value = formData.huntDetails.description || '';
                 if (huntImage) huntImage.value = formData.huntDetails.image || '';
-                if (huntAccuracy) huntAccuracy.value = formData.huntDetails.accuracy || '40';
+                if (huntAccuracy) huntAccuracy.value = formData.huntDetails.accuracy || '30';
             }
 
             // Restore clue counter

@@ -6,6 +6,7 @@
     <title>Create Hunt - Scavenger Hunt Sault Ste. Marie</title>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="lib/leaflet-2.0.0-alpha.1/dist/leaflet.css">
     <meta name="theme-color" content="#2196F3">
     <link rel="apple-touch-icon" href="icons/icon-192x192.png">
 </head>
@@ -44,7 +45,7 @@
                     <div class="form-group">
                         <label for="hunt-accuracy">Minimum Accuracy (meters) *</label>
                         <input type="number" id="hunt-accuracy" name="scavengerHuntMinimumAccuracy" 
-                               min="5" max="100" value="40" required>
+                               min="5" max="100" value="30" required>
                         <small>How close players need to get to each location (5-100 meters)</small>
                     </div>
                 </div>
@@ -87,6 +88,7 @@
         </div>
     </div>
 
+    <script src="lib/leaflet-2.0.0-alpha.1/dist/leaflet-global.js"></script>
     <script src="create-hunt.js"></script>
 </body>
 </html>
