@@ -24,7 +24,6 @@
         <footer>
             <p>Tap a hunt to begin your adventure!</p>
             <div class="footer-actions">
-                <button id="refresh-hunts-btn" class="refresh-btn">🔄 Refresh Hunts</button>
                 <button id="create-hunt-btn" class="create-hunt-btn">🔧 Create New Hunt</button>
             </div>
         </footer>
@@ -47,13 +46,18 @@
                 </div>
 				
                 <div class="setting-group">
-                    <button id="clear-all-progress-btn" class="clear-progress-btn">🗑️ Clear All Progress</button>
-                    <small class="setting-description">Remove all saved progress from all hunts.</small>
+                    <button id="refresh-hunts-btn" class="refresh-btn">🔄 Refresh Hunts</button>
+                    <small class="setting-description">Refresh hunt list from server</small>
                 </div>
-				
-				<div class="setting-group">
+
+                <div class="setting-group">
                     <button id="refresh-app-btn" class="refresh-app-btn">🔄 Refresh App</button>
                     <small class="setting-description">Clear all caches, redownload all files. User settings and progress are preserved.</small>
+                </div>
+				
+                <div class="setting-group">
+                    <button id="clear-all-progress-btn" class="clear-progress-btn">🗑️ Clear All Progress</button>
+                    <small class="setting-description">Remove all saved progress from all hunts.</small>
                 </div>
             </div>
         </div>
