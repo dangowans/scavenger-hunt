@@ -415,6 +415,13 @@ footer {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Settings modal specific button styling */
+.setting-group .refresh-btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+}
+
 /* Hunt Creation Form Styles */
 .hunt-form {
     max-width: 800px;
@@ -677,6 +684,7 @@ footer {
     box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
     margin: 10px;
     width: 100%;
+    max-width: 300px;
 }
 
 .clear-progress-btn:hover {
@@ -690,7 +698,7 @@ footer {
 }
 
 .refresh-app-btn {
-    background: #e74c3c;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
     color: white;
     border: none;
     padding: 12px 24px;
@@ -699,15 +707,16 @@ footer {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
     margin: 10px;
     width: 100%;
+    max-width: 300px;
 }
 
 .refresh-app-btn:hover {
-    background: #c0392b;
+    background: linear-gradient(135deg, #2980b9 0%, #1f618d 100%);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
 }
 
 .refresh-app-btn:active {

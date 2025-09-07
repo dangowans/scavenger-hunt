@@ -146,15 +146,6 @@ class ScavengerHuntApp {
         window.location.href = "create-hunt.html";
       });
     }
-
-    // Setup refresh hunts button
-    const refreshBtn = document.getElementById("refresh-hunts-btn");
-    if (refreshBtn) {
-      refreshBtn.addEventListener("click", async () => {
-        console.log("Refresh button clicked!");
-        await this.refreshHunts();
-      });
-    }
   }
 
   setupSettingsModal() {
@@ -209,6 +200,15 @@ class ScavengerHuntApp {
     if (refreshAppBtn) {
       refreshAppBtn.addEventListener("click", () => {
         this.refreshApp();
+      });
+    }
+
+    // Setup refresh hunts button (moved from setupCreateHuntButton)
+    const refreshBtn = document.getElementById("refresh-hunts-btn");
+    if (refreshBtn) {
+      refreshBtn.addEventListener("click", async () => {
+        console.log("Refresh button clicked!");
+        await this.refreshHunts();
       });
     }
   }
