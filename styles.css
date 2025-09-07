@@ -837,6 +837,50 @@ footer {
     animation: firework-explosion-3 2s ease-out infinite 1s;
 }
 
+.firework-4 {
+    left: 80%;
+    top: 50%;
+    background: #9b59b6;
+    box-shadow: 
+        0 0 20px #9b59b6,
+        0 0 40px #9b59b6,
+        0 0 60px #9b59b6;
+    animation: firework-explosion-4 2.5s ease-out infinite 1.5s;
+}
+
+.firework-5 {
+    left: 15%;
+    top: 60%;
+    background: #f39c12;
+    box-shadow: 
+        0 0 20px #f39c12,
+        0 0 40px #f39c12,
+        0 0 60px #f39c12;
+    animation: firework-explosion-5 1.8s ease-out infinite 0.8s;
+}
+
+.firework-6 {
+    right: 35%;
+    top: 70%;
+    background: #e74c3c;
+    box-shadow: 
+        0 0 20px #e74c3c,
+        0 0 40px #e74c3c,
+        0 0 60px #e74c3c;
+    animation: firework-explosion-6 2.2s ease-out infinite 2s;
+}
+
+.firework-7 {
+    left: 65%;
+    top: 15%;
+    background: #2ecc71;
+    box-shadow: 
+        0 0 20px #2ecc71,
+        0 0 40px #2ecc71,
+        0 0 60px #2ecc71;
+    animation: firework-explosion-7 2.8s ease-out infinite 0.3s;
+}
+
 @keyframes celebrate-bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0);
@@ -890,6 +934,69 @@ footer {
     }
     100% {
         transform: scale(18) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes firework-explosion-4 {
+    0% {
+        transform: scale(0) skew(0deg);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(1.2) skew(10deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(22) skew(45deg);
+        opacity: 0;
+    }
+}
+
+@keyframes firework-explosion-5 {
+    0% {
+        transform: scale(0) rotateX(0deg) rotateY(0deg);
+        opacity: 1;
+    }
+    10% {
+        transform: scale(0.8) rotateX(180deg) rotateY(90deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(16) rotateX(720deg) rotateY(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes firework-explosion-6 {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 50%;
+    }
+    25% {
+        transform: scale(1.5) rotate(90deg);
+        opacity: 1;
+        border-radius: 0%;
+    }
+    100% {
+        transform: scale(25) rotate(450deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+}
+
+@keyframes firework-explosion-7 {
+    0% {
+        transform: scale(0) rotateZ(0deg);
+        opacity: 1;
+    }
+    30% {
+        transform: scale(1) rotateZ(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(20) rotateZ(540deg);
         opacity: 0;
     }
 }
