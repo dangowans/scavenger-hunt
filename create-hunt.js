@@ -163,13 +163,13 @@ class HuntCreatorApp {
                         <div class="form-group">
                             <label for="answer-latitude-${clueId}">Latitude *</label>
                             <input type="number" id="answer-latitude-${clueId}" name="answerLatitude" 
-                                   step="any" required placeholder="46.0123456">
+                                   step="any" required placeholder="ex. 46.0123456">
                         </div>
                         
                         <div class="form-group">
                             <label for="answer-longitude-${clueId}">Longitude *</label>
                             <input type="number" id="answer-longitude-${clueId}" name="answerLongitude" 
-                                   step="any" required placeholder="-84.7894324">
+                                   step="any" required placeholder="ex. -84.7894324">
                         </div>
                         
                         <div class="form-group">
@@ -241,6 +241,7 @@ class HuntCreatorApp {
             const position = await this.getPosition();
             latitudeInput.value = position.coords.latitude;
             longitudeInput.value = position.coords.longitude;
+            this.saveFormData();
             button.textContent = '✅ Location captured';
             
             // Show accuracy information
