@@ -488,6 +488,11 @@ footer {
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #bdc3c7;
+}
+
 .form-group textarea {
     min-height: 80px;
     resize: vertical;
