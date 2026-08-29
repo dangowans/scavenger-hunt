@@ -1,0 +1,88 @@
+{
+  "scavengerHuntTitle": "Happy Birthday Hunt!",
+  "scavengerHuntDescription": "A special hunt of some favourite spots around Bellevue Park!",
+  "scavengerHuntImage": "",
+  "scavengerHuntMinimumAccuracy": 30,
+  "clues": [
+    {
+      "clueTitle": "First, the final \"parkour\" obstacle",
+      "clueDescription": "Not really a piece of playground equipment, but it still \"rocks\".",
+      "cluePicture": "",
+      "answerLatitude": 46.501978,
+      "answerLongitude": -84.2990731,
+      "answerTitle": "Rotary Adventure Playground dedication",
+      "answerDescription": "Thanks to Rotary for all they do!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Not a \"rock\" wall",
+      "clueDescription": "But kind of a rock wall, but not rock, but looks like rock, but not totally.",
+      "cluePicture": "",
+      "answerLatitude": 46.5025154,
+      "answerLongitude": -84.2989064,
+      "answerTitle": "Playground rock wall",
+      "answerDescription": "Remember when this was a challenge?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Worst slide ever!",
+      "clueDescription": "Or maybe worst stairs ever.",
+      "cluePicture": "",
+      "answerLatitude": 46.5013614,
+      "answerLongitude": -84.2979302,
+      "answerTitle": "Playground slide/stairs",
+      "answerDescription": "My butt hurts looking at it!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "King of the world!",
+      "clueDescription": "Or maybe just king of the hill!",
+      "cluePicture": "",
+      "answerLatitude": 46.5009543,
+      "answerLongitude": -84.2971999,
+      "answerTitle": "The top of the hill by the stage",
+      "answerDescription": "Be honest, it's still a great time on a sled!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Let's sail away!",
+      "clueDescription": "Captain, head to the wheel!",
+      "cluePicture": "",
+      "answerLatitude": 46.5000071,
+      "answerLongitude": -84.2962311,
+      "answerTitle": "Ship steering wheel",
+      "answerDescription": "Where are we going today?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "A hidden seat in a bush",
+      "clueDescription": "Like a place out of a storybook.",
+      "cluePicture": "",
+      "answerLatitude": 46.5004962,
+      "answerLongitude": -84.295813,
+      "answerTitle": "Mrs. Tiddlemouse's House",
+      "answerDescription": "Do you need a break before continuing?",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "A quiet place to throw seed",
+      "clueDescription": "A little off the main path, quack quack. A nice spot to sit, quack quack.",
+      "cluePicture": "",
+      "answerLatitude": 46.5007629,
+      "answerLongitude": -84.297684,
+      "answerTitle": "Duck Pond",
+      "answerDescription": "No bread please!",
+      "answerPicture": ""
+    },
+    {
+      "clueTitle": "Turn left, turn right, help!",
+      "clueDescription": "I'm lost in the hedges! Can anyone hear me?",
+      "cluePicture": "",
+      "answerLatitude": 46.5023012,
+      "answerLongitude": -84.3010801,
+      "answerTitle": "The Hedge Maze",
+      "answerDescription": "What else can you find in the maze?",
+      "answerPicture": ""
+    }
+  ]
+}
