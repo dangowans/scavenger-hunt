@@ -349,8 +349,8 @@ class HuntDetailsApp {
             // Get minimum accuracy (default to 30 meters if not specified)
             const minimumAccuracy = this.currentHunt.scavengerHuntMinimumAccuracy || 30;
             
-            // Account for device accuracy - success if user's uncertainty circle intersects target area
-            const totalAccuracy = deviceAccuracy + minimumAccuracy;
+            // Account for device accuracy - use half of device accuracy to avoid being too lenient
+            const totalAccuracy = (deviceAccuracy / 2) + minimumAccuracy;
             
             if (distance <= totalAccuracy) {
                 // Correct location!
@@ -428,9 +428,9 @@ class HuntDetailsApp {
             `${(distance / 1000).toFixed(1)} km` : 
             `${Math.round(distance)} meters`;
         
-        const totalAccuracy = deviceAccuracy + minimumAccuracy;
+        const totalAccuracy = (deviceAccuracy / 2) + minimumAccuracy;
         const accuracyText = deviceAccuracy > 0 ? 
-            `${Math.round(totalAccuracy)} meters (including ${Math.round(deviceAccuracy)}m device accuracy)` :
+            `${Math.round(totalAccuracy)} meters (including half of ${Math.round(deviceAccuracy)}m device accuracy)` :
             `${minimumAccuracy} meters`;
             
         locationResult.innerHTML = `
