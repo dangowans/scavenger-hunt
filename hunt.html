@@ -27,7 +27,21 @@
         </main>
         
         <div class="hunt-actions">
+            <button id="view-hunt-map-btn" class="view-map-btn hidden">🗺️ View Hunt Map</button>
             <button id="clear-hunt-progress-btn" class="clear-progress-btn">🗑️ Clear Hunt Progress</button>
+        </div>
+
+        <!-- Hunt Map Modal -->
+        <div id="hunt-map-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>🗺️ Hunt Map</h2>
+                    <button id="close-hunt-map-modal" class="close-btn">×</button>
+                </div>
+                <div class="modal-body">
+                    <div id="hunt-map-container" class="map-container"></div>
+                </div>
+            </div>
         </div>
 
         <!-- Clue Detail Modal -->
