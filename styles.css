@@ -145,7 +145,7 @@ header p {
 }
 
 .clue-item.completed {
-    background: rgba(76, 175, 80, 0.1);
+    background: rgba(76, 175, 80, 0.85);
     border-left: 4px solid #4CAF50;
 }
 
@@ -674,6 +674,32 @@ footer {
 .hunt-actions {
     text-align: center;
     margin: 20px 0;
+}
+
+.view-map-btn {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+    margin: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.view-map-btn:hover {
+    background: linear-gradient(135deg, #2980b9 0%, #1a6fa5 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.view-map-btn:active {
+    transform: translateY(0);
 }
 
 .clear-progress-btn {

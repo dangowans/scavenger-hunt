@@ -99,6 +99,30 @@ class HuntDetailsApp {
                 this.clearHuntProgress();
             });
         }
+
+        // View hunt map button
+        const viewHuntMapBtn = document.getElementById('view-hunt-map-btn');
+        if (viewHuntMapBtn) {
+            viewHuntMapBtn.addEventListener('click', () => {
+                this.openHuntMapModal();
+            });
+        }
+
+        // Close hunt map modal
+        const closeHuntMapBtn = document.getElementById('close-hunt-map-modal');
+        if (closeHuntMapBtn) {
+            closeHuntMapBtn.addEventListener('click', () => {
+                this.closeHuntMapModal();
+            });
+        }
+        const huntMapModal = document.getElementById('hunt-map-modal');
+        if (huntMapModal) {
+            huntMapModal.addEventListener('click', (e) => {
+                if (e.target === huntMapModal) {
+                    this.closeHuntMapModal();
+                }
+            });
+        }
     }
 
     renderHunt() {
@@ -113,6 +137,9 @@ class HuntDetailsApp {
         
         // Render clue list
         this.renderClueList();
+
+        // Update hunt map button visibility
+        this.updateHuntMapButtonVisibility();
     }
 
     updateProgress() {
@@ -507,6 +534,87 @@ class HuntDetailsApp {
         });
     }
     
+    updateHuntMapButtonVisibility() {
+        const viewHuntMapBtn = document.getElementById('view-hunt-map-btn');
+        if (!viewHuntMapBtn) return;
+
+        const mapEnabled = this.getMapSetting();
+        const hasAnyClueWithCoords = this.currentHunt && this.currentHunt.clues.some(
+            c => c.answerLatitude && c.answerLongitude
+        );
+
+        if (mapEnabled && hasAnyClueWithCoords) {
+            viewHuntMapBtn.classList.remove('hidden');
+        } else {
+            viewHuntMapBtn.classList.add('hidden');
+        }
+    }
+
+    openHuntMapModal() {
+        const modal = document.getElementById('hunt-map-modal');
+        const mapContainer = document.getElementById('hunt-map-container');
+
+        modal.style.display = 'block';
+
+        // Clean up any previous map
+        if (this.huntMap) {
+            this.huntMap.remove();
+            this.huntMap = null;
+        }
+
+        // Build a fresh container
+        const mapId = 'hunt-map-' + Date.now();
+        mapContainer.innerHTML = `<div id="${mapId}" style="width:100%;height:400px;"></div>`;
+
+        const cluesWithCoords = this.currentHunt.clues
+            .map((clue, index) => ({ clue, index }))
+            .filter(({ clue }) => clue.answerLatitude && clue.answerLongitude);
+
+        if (cluesWithCoords.length === 0) {
+            mapContainer.innerHTML = '<p>No clues have map coordinates.</p>';
+            return;
+        }
+
+        try {
+            const firstClue = cluesWithCoords[0].clue;
+            this.huntMap = L.map(mapId).setView(
+                [firstClue.answerLatitude, firstClue.answerLongitude], 14
+            );
+
+            if (this.isOnline) {
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors'
+                }).addTo(this.huntMap);
+            }
+
+            const bounds = [];
+            cluesWithCoords.forEach(({ clue, index }) => {
+                const isCompleted = this.huntProgress[index] || false;
+                const marker = L.marker([clue.answerLatitude, clue.answerLongitude])
+                    .addTo(this.huntMap);
+                marker.bindPopup(
+                    `<strong>${clue.clueTitle}</strong>${isCompleted ? '<br>✅ Found' : ''}`
+                );
+                bounds.push([clue.answerLatitude, clue.answerLongitude]);
+            });
+
+            if (bounds.length > 1) {
+                this.huntMap.fitBounds(bounds, { padding: [30, 30] });
+            }
+        } catch (error) {
+            console.error('Error creating hunt map:', error);
+            mapContainer.innerHTML = '<p>Map could not be loaded.</p>';
+        }
+    }
+
+    closeHuntMapModal() {
+        document.getElementById('hunt-map-modal').style.display = 'none';
+        if (this.huntMap) {
+            this.huntMap.remove();
+            this.huntMap = null;
+        }
+    }
+
     clearHuntProgress() {
         if (confirm(`Are you sure you want to clear all progress for "${this.currentHunt.scavengerHuntTitle}"? This action cannot be undone.`)) {
             // Clear the progress for this hunt
